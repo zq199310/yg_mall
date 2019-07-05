@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>央广购物</title>
+    <link rel="stylesheet" href="css/fundam.css">
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+
+<body>
+    <div class="public-top-layout">
+        <div class="topbar wrapper">
+            <div class="left">
+                <div class="mall-home"><a href="/"><span class="icon"></span>返回商城首页</a></div>
+                <!-- s 配送至-->
+                <div class="my-city" id="shortCutMyCityPanel"></div>
+                <!-- E 配送至-->
+            </div>
+            <div class="right" id="quickMenu">
+                <dl class="top-menu login">
+                    <dt class="top-menu-title normal"><a href="/login" class="login-link">您好，请登录</a> <a
+                            href="/register">免费注册</a></dt>
+                </dl>
+                <dl class="top-menu my-order">
+                    <dt class="top-menu-title"><a target="_blank" href="/member/orders/list">我的订单</a><span
+                            class="arrow"></span></dt>
+                    <dd class="top-menu-con">
+                        <ul>
+                            <li><a target="_blank" href="/member/orders/list/?ordersState=new">待支付</a></li>
+                            <li><a target="_blank" href="/member/orders/list/?ordersState=send">待确认</a></li>
+                            <li><a target="_blank" href="/member/orders/list/?ordersState=noeval">待评价</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="top-menu my-mall">
+                    <dt class="top-menu-title"><a target="_blank" href="/member/">我的商城</a><span class="arrow"></span>
+                    </dt>
+                    <dd class="top-menu-con">
+                        <ul class="user-centent-menu">
+                            <li><a href="/member/message/list" target="_top">站内消息</a></li>
+                            <li><a href="/member/consult/list" target="_top">咨询回复</a></li>
+                            <li><a href="/member/favorites/goods" target="_top">我的收藏</a></li>
+                            <li><a href="/member/goodsbrowse" target="_top">我的足迹</a></li>
+                            <li><a href="/member/pointslog" target="_top">我的积分</a></li>
+                            <li><a href="/member/voucher/index" target="_top">我的优惠券</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="top-menu call-center">
+                    <dt class="top-menu-title">客户服务<span class="arrow"></span></dt>
+                    <dd class="top-menu-con">
+                        <ul>
+                            <li><a target="_blank" href="https://www1.cnrmall.com/article/list/11"
+                                    target="_blank">购物指南</a></li>
+                            <li><a target="_blank" href="https://www1.cnrmall.com/article/list/15"
+                                    target="_blank">售后服务</a></li>
+                            <li><a target="_blank" href="https://www1.cnrmall.com/article/list/12"
+                                    target="_blank">商家服务</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl class="top-menu mobile-mall">
+                    <dt class="top-menu-title"><span class="icon"></span>手机商城<span class="arrow"></span></dt>
+                    <dd class="top-menu-con" style="width: 140px"> <span class="QRcode"> <img
+                                src="https://pic.cnrmall.com/qr/app/url.gif">
+                            <p>扫描二维码<br />
+                                更多优惠关注微信公众号</p>
+                        </span> </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="ncc-head-wrap ">
+        <header class="ncc-head-layout">
+            <div class="site-logo"><a href="/"><img
+                        src="https://pic2.cnrmall.com/image/2c/6c/2c6ce4ec89967ee42ef77fb0b524fc0c.png" alt="" /></a>
+            </div>
+            <ul class="ncc-flow">
+                <li class="current"><i class="step1"></i>
+                    <p>我的购物车</p>
+                    <sub></sub>
+                    <div class="hr"></div>
+                </li>
+                <li><i class="step2"></i>
+                    <p>确认订单/结算</p>
+                    <sub></sub>
+                    <div class="hr"></div>
+                </li>
+                <li><i class="step3"></i>
+                    <p>生成订单/支付</p>
+                    <sub></sub>
+                    <div class="hr"></div>
+                </li>
+                <li><i class="step4"></i>
+                    <p>完成支付</p>
+                    <sub></sub>
+                    <div class="hr"></div>
+                </li>
+            </ul>
+        </header>
+    </div>
+    <div class="ncc-null-shopping"><i class="ico"></i>
+        <h4>您的购物车还没有商品</h4>
+        <p><a class="btn btn-sm btn-success m-r-10" href="/"><i class="fa fa-reply-all"></i>马上去购物</a> <a
+                class="btn btn-sm btn-default" href="/member/orders/list"><i class="fa fa-file-text"></i>查看自己的订单</a></p>
+    </div>
+
+    <!-- 最近浏览和猜你喜欢 -->
+    <div id="browse_like_div" class="nc-goods-borowse"></div>
+
+    <link href="https://statics.cnrmall.com/public/toolkit/bxslider/jquery.bxslider.css" rel="stylesheet" />
+    <script src="https://statics.cnrmall.com/public/toolkit/bxslider/jquery.bxslider.js"></script>
+    <script>
+        $(function () {
+            //最近浏览和猜你喜欢
+            $('#browse_like_div').ncBrowseAndGuessLike();
+        });
+    </script>
+    <div id="footer">
+        <div class="wrapper">
+            <p><a href="/">首页</a>
+                | <a target="_blank" href="https://www.cnrmall.com/article/list/199093" target="_blank">招商合作</a> | <a
+                    target="_blank" href="https://www.cnrmall.com/article/info/22" target="_blank">关于央广购物</a> | <a
+                    target="_blank" href="https://www.cnrmall.com/article/info/175304" target="_blank">联系我们</a> | <a
+                    target="_blank" href="http://scm.cnrmall.com/veninfo/venlogin/index.jsp" target="_blank">成为供应商</a>
+            </p>
+
+            <p><a
+                    href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11011502003547">京公网安备：11011502003547</a>&nbsp;&nbsp;<a
+                    target="_blank"
+                    href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action">京ICP备19000295号</a>&nbsp;&nbsp;<a
+                    target="_blank" href="javascript:;">食品流通许可证编号：SP1101151210063489</a>&nbsp;&nbsp;
+                <a target="_blank" href="javascript:;">信息网络传播视听节目许可证 0102002号</a>&nbsp;&nbsp;<a target="_blank"
+                    href="https://cnr-xiaopin.oss-cn-beijing.aliyuncs.com/certificate/%E5%89%AF%E6%9C%AC.jpg">营业执照</a>
+            </p>
+            <p>央广小品科技(北京)有限公司</p>
+            <p>Copyright<em style="font-family:Arial,Verdana; margin:0 4px">©</em>2010-2019 cnrmall.com All Rights
+                Reserved&nbsp;&nbsp;&nbsp;&nbsp;服务热线：4008-518-518</p>
+            <!--Copyright © 2018 央广小品,All rights reserved.&nbsp;&nbsp;&nbsp;&nbsp;京ICP备10038858号 京公网安备：11011502002190 服务热线：4008-518-518<br />-->
+            <!--Powered by <span style="font-weight: 600;"><font style="color:orange;">Cnrmall.com</font><font style="color:blue;"></font></span><br />-->
+            <script
+                type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1260731735'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1260731735' type='text/javascript'%3E%3C/script%3E"));</script>
+
+            <script>
+                var _hmt = _hmt || [];
+                (function () {
+                    var hm = document.createElement("script");
+                    hm.src = "https://hm.baidu.com/hm.js?905123a113c36971dd79389429636f4c";
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(hm, s);
+                })();
+            </script>
+            <ul class="footer-img">
+                <li><a class="img01" href="javascript:;"></a></li>
+                <li>
+                    <script src="https://kxlogo.knet.cn/seallogo.dll?sn=e16110811011565130ecka000000&size=0"></script>
+                </li>
+                <li><a id='___szfw_logo___' href='https://credit.szfw.org/CX63030000051620161107.html'
+                        target='_blank'><img src='http://icon.szfw.org/cert.png' border='0' /></a></li>
+                <li><a class="img05" href="http://www.bj.cyberpolice.cn/index.do" target="_blank"></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>央广商城</title>
+    <link rel="stylesheet" href="css/fundam.css">
+    <link rel="stylesheet" href="css/web-common.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/details.css">
+</head>
+<body>
+    <div class="public-top-layout">
+  <div class="topbar wrapper">
+    <div class="left">
+      <div class="mall-home"><a href="/"><span class="icon"></span>返回商城首页</a></div>
+      <!-- s 配送至-->
+      <div class="my-city" id="shortCutMyCityPanel"></div >
+      <!-- E 配送至--> 
+    </div >
+    <div class="right" id="quickMenu">
+      <dl class="top-menu login">
+        <dt class="top-menu-title normal"><a href="/login" class="login-link">您好，请登录</a> <a href="/register">免费注册</a></dt>
+      </dl>
+      <dl class="top-menu my-order">
+        <dt class="top-menu-title"><a target="_blank" href="/member/orders/list">我的订单</a><span class="arrow"></span></dt>
+        <dd class="top-menu-con">
+          <ul>
+            <li><a target="_blank" href="/member/orders/list/?ordersState=new">待支付</a></li>
+            <li><a target="_blank" href="/member/orders/list/?ordersState=send">待确认</a></li>
+            <li><a target="_blank" href="/member/orders/list/?ordersState=noeval">待评价</a></li>
+          </ul>
+        </dd>
+      </dl>
+      <dl class="top-menu my-mall">
+        <dt class="top-menu-title"><a target="_blank" href="/member/">我的商城</a><span class="arrow"></span></dt>
+        <dd class="top-menu-con">
+          <ul class="user-centent-menu">
+            <li><a href="/member/message/list" target="_top">站内消息</a></li>
+            <li><a href="/member/consult/list" target="_top">咨询回复</a></li>
+            <li><a href="/member/favorites/goods" target="_top">我的收藏</a></li>
+            <li><a href="/member/goodsbrowse" target="_top">我的足迹</a></li>
+            <li><a href="/member/pointslog" target="_top">我的积分</a></li>
+            <li><a href="/member/voucher/index" target="_top">我的优惠券</a></li>
+          </ul>
+        </dd>
+      </dl>      
+      <dl class="top-menu call-center">
+        <dt class="top-menu-title">客户服务<span class="arrow"></span></dt>
+        <dd class="top-menu-con">
+          <ul>
+            <li><a target="_blank" href="https://www1.cnrmall.com/article/list/11" target="_blank">购物指南</a></li>
+            <li><a target="_blank" href="https://www1.cnrmall.com/article/list/15" target="_blank">售后服务</a></li>
+            <li><a target="_blank" href="https://www1.cnrmall.com/article/list/12" target="_blank">商家服务</a></li>
+          </ul>
+        </dd>
+      </dl>
+      <dl class="top-menu mobile-mall">
+        <dt class="top-menu-title"><span class="icon"></span>手机商城<span class="arrow"></span></dt>
+        <dd class="top-menu-con" style="width: 140px"> <span class="QRcode"> <img src="https://pic.cnrmall.com/qr/app/url.gif">
+          <p>扫描二维码<br/>
+            更多优惠关注微信公众号</p>
+          </span>  </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+<div class="header-wrap">
+  <header class="public-head-layout wrapper">
+    <h1 class="site-logo"><a href="/"><img src="https://pic1.cnrmall.com/image/2c/6c/2c6ce4ec89967ee42ef77fb0b524fc0c.png" alt=""/></a></h1>
+    <div class=""></div>
+    <div class="head-search-layout">
+      <div class="head-search-tab" id="searchTab">
+        <span style="display: none;"><a href="javascript:;" class="selected" data-sign="goods" style="color: #212121;">商品</a></span>
+        <span style="display: none;"><a href="javascript:;" class="" data-sign="store">店铺</a></span>
+        <!--<span><a href="javascript:;" class="" data-sign="purchase">求购</a></span> --></div>
+      <div class="head-search-bar" id="head-search-bar">
+        <form action="/search" method="get" class="search-form" id="headerSearchForm">
+          <input name="keyword" id="keyword" type="text" class="input-text" value="" maxlength="60" placeholder=" 请输入您要搜索的商品关键字"  autocomplete="off" />
+          <input type="submit" id="buttonSearch" value="搜 索" class="input-submit">
+        </form>
+        <!-- 搜索提示div 开始 -->
+        <div class="search-tip" id="search-tip">
+          <div class="search-history">
+            <div class="title">历史纪录<a href="javascript:void(0);" id="search-his-del">清除</a></div>
+            <ul id="search-his-list">
+            </ul>
+          </div>
+          <div class="search-hot">
+            <div class="title">热门搜索...</div>
+            <ul>
+              <li><a data-hot-value="按摩仪" hotSearch href="/search?&keyword=%E6%8C%89%E6%91%A9%E4%BB%AA">暑你健康 按摩仪</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- 搜索提示div 结束 -->
+      </div>
+      <div class="keyword">热门关键字：
+        <ul>
+          <li><a target="_blank" href="/search?&keyword=%E7%8E%AB%E7%91%B0%E6%B0%B4">玫瑰水</a></li>
+          <li><a target="_blank" href="/search?&keyword=%E8%BF%9E%E8%A1%A3%E8%A3%99">连衣裙</a></li>
+          <li><a target="_blank" href="/search?&keyword=%E8%96%AF%E7%89%87">薯片</a></li>
+          <li><a target="_blank" href="/search?&keyword=%E5%BE%A1%E6%B3%A5%E5%9D%8A">御泥坊</a></li>
+          <li><a target="_blank" href="/search?&keyword=%E9%AD%94%E6%9C%AF%E8%A1%A3%E6%9E%B6">魔术衣架</a></li>
+          <li><a target="_blank" href="/search?&keyword=%E4%B9%B3%E8%83%B6">乳胶</a></li>
+          <li><a target="_blank" href="/search?&keyword=%E8%96%8F%E7%B1%B3%E7%B2%89">薏米粉</a></li>
+          <li><a target="_blank" href="/search?&keyword=%E6%8C%89%E6%91%A9%E6%A4%85">按摩椅</a></li>
+          <li><a target="_blank" href="/search?&keyword=%E7%9C%9F%E4%B8%9D">真丝</a></li>
+          <li><a target="_blank" href="/search?&keyword=%E8%9C%82%E8%9C%9C">蜂蜜</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- 头部购物车_Star -->
+    <div id="topMyCart" class="my-cart">
+      <div class="my-cart-tit"><i class="my-cart-ico"></i><i data-red-point style="display: none;" class="my-cart-count"></i><a target="_blank" href="/cart/list" title="购物车">我的购物车</a></div>
+      <div class="my-cart-con">
+        <div class="spacer"></div>
+        <div class="sub-title" >
+          <h4>最新加入的商品</h4 >
+        </div >
+        <div class="incart-goods-box">
+          <div class="incart-goods" data-cart-goods-list> <img class="loading" src="https://statics.cnrmall.com/web/static/img//cart_loading.gif"  alt=""/> </div >
+        </div >
+        <div class="checkout" data-goods-price></div>
+      </div >
+    </div>
+    <!-- 头部购物车_End -->
+  </header>
+</div>
+<nav class="public-nav-layout" id="public-nav-layout">
+  <div class="wrapper">
+    <div class="all-category">
+<div class="title">
+  <h3><a target="_blank" href="/category">所有商品分类</a></h3>
+  <i class="arrow-down"></i>
+</div>
+<div class="min-title"><a target="_blank" href="/category">全部分类</a><span class="arrow-down"></span></div>
+<div id="topCategoryMenu" class="category">
+<ul class="menu">
+  <!--<li cat_menu_id="2" class="odd">-->
+  <li cat_menu_id="2" class="cate-menu-item"> 
+    <div class="cate-menu-box">
+    <a target="_blank" class="cate-menu-lk" href="/search?cat=19">休闲食品</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=22">即食罐头</a><span class="cate-menu-line">/</span> 
+    </div>
+    <div class="cate-part" cat_menu_id="2">
+      <div class="cate-part-col1">         <div class="cate-detail"> 
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=20">休闲小食<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=26">膨化糕饼</a>  <a target="_blank"  href="/search?cat=27">坚果炒货</a>  <a target="_blank"  href="/search?cat=28">蜜饯糖果</a>  <a target="_blank"  href="/search?cat=29">熟食肉干</a>  <a target="_blank"  href="/search?cat=30">其它休闲食品</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=21">粮油副食<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=31">大米</a>  <a target="_blank"  href="/search?cat=32">面粉</a>  <a target="_blank"  href="/search?cat=33">食用油</a>  <a target="_blank"  href="/search?cat=34">杂粮</a>  <a target="_blank"  href="/search?cat=35">粮油制品</a>  <a target="_blank"  href="/search?cat=36">副食调料</a>  <a target="_blank"  href="/search?cat=37">其它粮油副食</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=22">即食罐头<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=38">水果罐头</a>  <a target="_blank"  href="/search?cat=39">鱼类罐头</a>  <a target="_blank"  href="/search?cat=40">肉类罐头</a>  <a target="_blank"  href="/search?cat=41">蔬菜类罐头</a>  <a target="_blank"  href="/search?cat=42">滋补类罐头</a>  <a target="_blank"  href="/search?cat=43">其他罐头</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=23">方便食品<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=44">方便面/粉/粥</a>  <a target="_blank"  href="/search?cat=45">自热盒饭</a>  <a target="_blank"  href="/search?cat=46">烘培速食</a>  <a target="_blank"  href="/search?cat=47">即食调味菜</a>  <a target="_blank"  href="/search?cat=48">其他方便食品</a> 
+               </dd>
+          </dl>
+           </div>
+         </div>
+      <div class="sub-class-right">
+        <div class="adv-promotions"> 
+           <a title="" href="https://www1.cnrmall.com/search?cat=20" target="_blank"> <img src="https://pic.cnrmall.com/image/43/8a/438a8473467e0ac9c94fa7384ae14699.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=21" target="_blank"> <img src="https://pic.cnrmall.com/image/36/92/36927707e72a6a6c04f77e860506613c.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=22" target="_blank"> <img src="https://pic.cnrmall.com/image/c9/81/c98198574adcd242b9ba2a72f44d87e0.jpg" > </a>  </div>
+      </div>
+       </div>
+  </li>
+  <!--<li cat_menu_id="3" class="even">-->
+  <li cat_menu_id="3" class="cate-menu-item"> 
+    <div class="cate-menu-box">
+    <a target="_blank" class="cate-menu-lk" href="/search?cat=109">水果 </a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=103">水产</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=118">精选肉类</a><span class="cate-menu-line">/</span> 
+    </div>
+    <div class="cate-part" cat_menu_id="3">
+      <div class="cate-part-col1">         <div class="cate-detail"> 
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=109">水果<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=110">国产水果</a>  <a target="_blank"  href="/search?cat=113">进口水果</a>  <a target="_blank"  href="/search?cat=115">其他水果</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=103">水产<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=104">海参</a>  <a target="_blank"  href="/search?cat=105">鱼虾</a>  <a target="_blank"  href="/search?cat=106">鲍/贝</a>  <a target="_blank"  href="/search?cat=108">其他水产</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=118">禽蛋肉<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=120">鲜蛋</a>  <a target="_blank"  href="/search?cat=122">猪肉</a>  <a target="_blank"  href="/search?cat=124">牛肉</a>  <a target="_blank"  href="/search?cat=126">羊肉</a>  <a target="_blank"  href="/search?cat=128">鸡肉</a>  <a target="_blank"  href="/search?cat=130">鸭肉</a>  <a target="_blank"  href="/search?cat=133">其他禽蛋肉</a> 
+               </dd>
+          </dl>
+           </div>
+         </div>
+      <div class="sub-class-right">
+        <div class="adv-promotions"> 
+           <a title="" href="https://www1.cnrmall.com/search?cat=109" target="_blank"> <img src="https://pic.cnrmall.com/image/04/26/0426ab1880a842ef59b09cd45d0ccac3.jpg" > </a>  <a title="" href="https://www.cnrmall.com/goods/40474" target="_blank"> <img src="https://pic.cnrmall.com/image/ad/1c/ad1c0a1c83110f234e4236f9eaf42d10.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=103" target="_blank"> <img src="https://pic.cnrmall.com/image/a8/83/a883eee835e8e195158323817018e694.jpg" > </a>  </div>
+      </div>
+       </div>
+  </li>
+  <!--<li cat_menu_id="4" class="odd">-->
+  <li cat_menu_id="4" class="cate-menu-item"> 
+    <div class="cate-menu-box">
+    <a target="_blank" class="cate-menu-lk" href="/search?cat=4">茗茶</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=2"> 酒类</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=24">冲调茶饮</a><span class="cate-menu-line">/</span> 
+    </div>
+    <div class="cate-part" cat_menu_id="4">
+      <div class="cate-part-col1">         <div class="cate-detail"> 
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=2">中外名酒<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=5">红酒</a>  <a target="_blank"  href="/search?cat=6">白酒</a>  <a target="_blank"  href="/search?cat=7">洋酒</a>  <a target="_blank"  href="/search?cat=8">啤酒</a>  <a target="_blank"  href="/search?cat=9">保健酒</a>  <a target="_blank"  href="/search?cat=3">其他酒</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=4">茶叶/茶包<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=10">红茶</a>  <a target="_blank"  href="/search?cat=11">绿茶</a>  <a target="_blank"  href="/search?cat=12">花茶</a>  <a target="_blank"  href="/search?cat=13">普洱</a>  <a target="_blank"  href="/search?cat=14">黑茶/白茶</a>  <a target="_blank"  href="/search?cat=15">铁观音</a>  <a target="_blank"  href="/search?cat=16">花草花果茶</a>  <a target="_blank"  href="/search?cat=17">养生茶/片</a>  <a target="_blank"  href="/search?cat=18">其他茶类</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=24">冲调粉茶<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=49">成人奶粉</a>  <a target="_blank"  href="/search?cat=50">茶粉</a>  <a target="_blank"  href="/search?cat=51">蜂蜜</a>  <a target="_blank"  href="/search?cat=52">咖啡</a>  <a target="_blank"  href="/search?cat=53">麦片</a>  <a target="_blank"  href="/search?cat=54">代餐/谷粉</a>  <a target="_blank"  href="/search?cat=55">红糖/黑糖/冰糖</a>  <a target="_blank"  href="/search?cat=64">其他冲饮</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=25">牛奶/饮料<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=57">水</a>  <a target="_blank"  href="/search?cat=58">牛奶</a>  <a target="_blank"  href="/search?cat=59">果汁</a>  <a target="_blank"  href="/search?cat=60">碳酸饮料</a>  <a target="_blank"  href="/search?cat=61">茶饮料</a>  <a target="_blank"  href="/search?cat=62">功能饮料</a>  <a target="_blank"  href="/search?cat=63">蛋白质饮料</a>  <a target="_blank"  href="/search?cat=64">其他饮料</a> 
+               </dd>
+          </dl>
+           </div>
+         </div>
+      <div class="sub-class-right">
+        <div class="adv-promotions"> 
+           <a title="" href="https://www1.cnrmall.com/search?cat=4" target="_blank"> <img src="https://pic.cnrmall.com/image/c5/31/c531b95c13fbc2aaf440077e1e3f8e56.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=2" target="_blank"> <img src="https://pic.cnrmall.com/image/bf/55/bf55aa9abde676a5add2425eafc68767.jpg" > </a>  <a title="" href="https://www.cnrmall.com/search?cat=51" target="_blank"> <img src="https://pic.cnrmall.com/image/dc/84/dc84fb8e4ee095889d7b6737428404c5.jpg" > </a>  </div>
+      </div>
+       </div>
+  </li>
+  <!--<li cat_menu_id="5" class="even">-->
+  <li cat_menu_id="5" class="cate-menu-item"> 
+    <div class="cate-menu-box">
+    <a target="_blank" class="cate-menu-lk" href="/search?cat=66">传统滋补</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=67">营养健康</a><span class="cate-menu-line">/</span> 
+    </div>
+    <div class="cate-part" cat_menu_id="5">
+      <div class="cate-part-col1">         <div class="cate-detail"> 
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=66">传统滋补<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=69">参/海参</a>  <a target="_blank"  href="/search?cat=70">燕窝</a>  <a target="_blank"  href="/search?cat=71">阿胶</a>  <a target="_blank"  href="/search?cat=72">石斛/枫斗</a>  <a target="_blank"  href="/search?cat=73">灵芝孢子粉</a>  <a target="_blank"  href="/search?cat=74">枸杞/银耳/莲子</a>  <a target="_blank"  href="/search?cat=75">葛根</a>  <a target="_blank"  href="/search?cat=76">鹿茸</a>  <a target="_blank"  href="/search?cat=77">当归/黄芪</a>  <a target="_blank"  href="/search?cat=78">藏红花</a>  <a target="_blank"  href="/search?cat=79">虫草</a>  <a target="_blank"  href="/search?cat=80">其他传统滋补</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=67">营养健康<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=81">维生素</a>  <a target="_blank"  href="/search?cat=82">鱼油/磷脂</a>  <a target="_blank"  href="/search?cat=83">螺旋藻</a>  <a target="_blank"  href="/search?cat=84">番茄红素</a>  <a target="_blank"  href="/search?cat=85">胶原蛋白</a>  <a target="_blank"  href="/search?cat=86">蛋白质</a>  <a target="_blank"  href="/search?cat=87">酵素</a>  <a target="_blank"  href="/search?cat=88">辅酶Q10</a>  <a target="_blank"  href="/search?cat=89">葡萄籽</a>  <a target="_blank"  href="/search?cat=90">芹菜籽</a>  <a target="_blank"  href="/search?cat=91">叶黄素/叶绿素</a>  <a target="_blank"  href="/search?cat=93">膳食纤维</a>  <a target="_blank"  href="/search?cat=94">大豆异黄酮</a>  <a target="_blank"  href="/search?cat=95">芦荟</a>  <a target="_blank"  href="/search?cat=96">褪黑素</a>  <a target="_blank"  href="/search?cat=97">虾青素</a>  <a target="_blank"  href="/search?cat=98">益生菌</a>  <a target="_blank"  href="/search?cat=99">健肌粉</a>  <a target="_blank"  href="/search?cat=100">叶酸片</a>  <a target="_blank"  href="/search?cat=101">牛初乳</a>  <a target="_blank"  href="/search?cat=107">其他营养成分</a> 
+               </dd>
+          </dl>
+           </div>
+         </div>
+      <div class="sub-class-right">
+        <div class="adv-promotions"> 
+           <a title="" href="https://www1.cnrmall.com/search?cat=66" target="_blank"> <img src="https://pic.cnrmall.com/image/ea/93/ea9388cd0322eec4967ab5e7871b8d98.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/goods/6282" target="_blank"> <img src="https://pic.cnrmall.com/image/f9/41/f9419097a43e5cd4a7e39593f3801b7b.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=67" target="_blank"> <img src="https://pic.cnrmall.com/image/b2/8f/b28f6d7990ac3fb7adcc528349d53a49.jpg" > </a>  </div>
+      </div>
+       </div>
+  </li>
+  <!--<li cat_menu_id="6" class="odd">-->
+  <li cat_menu_id="6" class="cate-menu-item"> 
+    <div class="cate-menu-box">
+    <a target="_blank" class="cate-menu-lk" href="/search?cat=135">跨境直邮</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=68">保健食品</a><span class="cate-menu-line">/</span> 
+    </div>
+    <div class="cate-part" cat_menu_id="6">
+      <div class="cate-part-col1">         <div class="cate-detail"> 
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=136">跨境食品<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=137">休闲食品</a>  <a target="_blank"  href="/search?cat=138">保健食品</a>  <a target="_blank"  href="/search?cat=140">烘培调味</a>  <a target="_blank"  href="/search?cat=409">水果肉禽</a>  <a target="_blank"  href="/search?cat=410">蔬菜水产</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=147">跨境美妆<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=188">面部护理</a>  <a target="_blank"  href="/search?cat=189">身体护理</a>  <a target="_blank"  href="/search?cat=191">时尚彩妆</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=149">跨境服饰<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=181">男装</a>  <a target="_blank"  href="/search?cat=184">女装</a>  <a target="_blank"  href="/search?cat=186">配饰</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=151">跨境母婴<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=162">喂养用品</a>  <a target="_blank"  href="/search?cat=164">奶粉</a>  <a target="_blank"  href="/search?cat=166">尿裤湿巾</a>  <a target="_blank"  href="/search?cat=168">保健辅食</a>  <a target="_blank"  href="/search?cat=170">婴童洗护</a>  <a target="_blank"  href="/search?cat=172">跨境卫生巾</a>  <a target="_blank"  href="/search?cat=174">婴童寝具</a>  <a target="_blank"  href="/search?cat=175">童装童鞋</a>  <a target="_blank"  href="/search?cat=177">早教玩具</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=152">跨境家居<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=153">纺织家饰</a>  <a target="_blank"  href="/search?cat=155">个护清洁</a>  <a target="_blank"  href="/search?cat=157">收纳用品</a>  <a target="_blank"  href="/search?cat=159">3C数码</a>  <a target="_blank"  href="/search?cat=160">生活电器</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=68">保健食品<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=111">美容养颜</a>  <a target="_blank"  href="/search?cat=112">增强免疫</a>  <a target="_blank"  href="/search?cat=114">调节三高</a>  <a target="_blank"  href="/search?cat=116">养胃护肝</a>  <a target="_blank"  href="/search?cat=117">强身健骨</a>  <a target="_blank"  href="/search?cat=119">补肾健脾</a>  <a target="_blank"  href="/search?cat=121">改善睡眠</a>  <a target="_blank"  href="/search?cat=123">减肥塑身</a>  <a target="_blank"  href="/search?cat=125">缓解疲劳</a>  <a target="_blank"  href="/search?cat=127">明目益智</a>  <a target="_blank"  href="/search?cat=129">防辐射</a>  <a target="_blank"  href="/search?cat=131">其他保健品</a> 
+               </dd>
+          </dl>
+           </div>
+         </div>
+      <div class="sub-class-right">
+        <div class="adv-promotions"> 
+           <a title="" href="https://www1.cnrmall.com/search?cat=136" target="_blank"> <img src="https://pic.cnrmall.com/image/57/9c/579c94327a1c9f31500543f779903a35.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/goods/6193" target="_blank"> <img src="https://pic.cnrmall.com/image/b8/0c/b80c5adf511f571d1eb913323be0ca24.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=68" target="_blank"> <img src="https://pic.cnrmall.com/image/bf/ef/bfef2ff3bfcb942789768b637a502cdb.jpg" > </a>  </div>
+      </div>
+       </div>
+  </li>
+  <!--<li cat_menu_id="7" class="even">-->
+  <li cat_menu_id="7" class="cate-menu-item"> 
+    <div class="cate-menu-box">
+    <a target="_blank" class="cate-menu-lk" href="/search?cat=257">厨房用具</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=260"> 厨房电器</a><span class="cate-menu-line">/</span> 
+    </div>
+    <div class="cate-part" cat_menu_id="7">
+      <div class="cate-part-col1">         <div class="cate-detail"> 
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=259">厨房用品<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=261">烹饪锅具</a>  <a target="_blank"  href="/search?cat=262">厨房配件</a>  <a target="_blank"  href="/search?cat=263">餐具</a>  <a target="_blank"  href="/search?cat=265">水具酒具</a>  <a target="_blank"  href="/search?cat=267">其他厨房用品</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=260">厨房电器<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=270">厨卫大电器</a>  <a target="_blank"  href="/search?cat=272">厨房小电器</a>  <a target="_blank"  href="/search?cat=267">其他厨房电器</a> 
+               </dd>
+          </dl>
+           </div>
+         </div>
+      <div class="sub-class-right">
+        <div class="adv-promotions"> 
+           <a title="" href="https://www1.cnrmall.com/search?cat=270" target="_blank"> <img src="https://pic.cnrmall.com/image/fb/33/fb33c2d5198c5a38771a99fb4ff3eb2c.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=261" target="_blank"> <img src="https://pic.cnrmall.com/image/04/ae/04ae5466e638e64519888c99256b1fe8.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=272" target="_blank"> <img src="https://pic.cnrmall.com/image/9e/e0/9ee0092c09cd9cf102e8b231c7d83de2.jpg" > </a>  </div>
+      </div>
+       </div>
+  </li>
+  <!--<li cat_menu_id="8" class="odd">-->
+  <li cat_menu_id="8" class="cate-menu-item"> 
+    <div class="cate-menu-box">
+    <a target="_blank" class="cate-menu-lk" href="/search?cat=222">家居</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=221">家纺</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=397">家装卫浴</a><span class="cate-menu-line">/</span> 
+    </div>
+    <div class="cate-part" cat_menu_id="8">
+      <div class="cate-part-col1">         <div class="cate-detail"> 
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=221">布艺家纺<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=224">床品件套</a>  <a target="_blank"  href="/search?cat=225">床垫床褥</a>  <a target="_blank"  href="/search?cat=227">沙发套垫</a>  <a target="_blank"  href="/search?cat=228">毛巾浴巾</a>  <a target="_blank"  href="/search?cat=230">其他家纺</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=222">创意家居<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=233">整理收纳</a>  <a target="_blank"  href="/search?cat=234">地毯地垫</a>  <a target="_blank"  href="/search?cat=236">创意摆件</a>  <a target="_blank"  href="/search?cat=238">餐桌布艺</a>  <a target="_blank"  href="/search?cat=239">抱枕靠垫</a>  <a target="_blank"  href="/search?cat=241">窗帘窗纱</a>  <a target="_blank"  href="/search?cat=243">婚庆节庆</a>  <a target="_blank"  href="/search?cat=244">家具</a>  <a target="_blank"  href="/search?cat=246">其他创意家居</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=223">灯饰照明<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=249">装修灯具</a>  <a target="_blank"  href="/search?cat=250">装饰灯具</a>  <a target="_blank"  href="/search?cat=252">其他灯饰照明</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=397">家装卫浴<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=399">水龙头</a>  <a target="_blank"  href="/search?cat=400">马桶盖</a>  <a target="_blank"  href="/search?cat=401">淋浴花洒</a> 
+               </dd>
+          </dl>
+           </div>
+         </div>
+      <div class="sub-class-right">
+        <div class="adv-promotions"> 
+           <a title="" href="https://www1.cnrmall.com/search?cat=221" target="_blank"> <img src="https://pic.cnrmall.com/image/8a/61/8a61534844895a3f0c7d795b78bf5c62.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=222" target="_blank"> <img src="https://pic.cnrmall.com/image/a7/de/a7def9f57e92984f2e8a7aea4a1d2cd0.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=397" target="_blank"> <img src="https://pic.cnrmall.com/image/24/f3/24f3453853a36b673c8e6b117016c981.jpg" > </a>  </div>
+      </div>
+       </div>
+  </li>
+  <!--<li cat_menu_id="9" class="even">-->
+  <li cat_menu_id="9" class="cate-menu-item"> 
+    <div class="cate-menu-box">
+    <a target="_blank" class="cate-menu-lk" href="/search?cat=285">生活电器</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=287">3C数码</a><span class="cate-menu-line">/</span> 
+    </div>
+    <div class="cate-part" cat_menu_id="9">
+      <div class="cate-part-col1">         <div class="cate-detail"> 
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=283">大家电<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=290">电视</a>  <a target="_blank"  href="/search?cat=293">冰箱</a>  <a target="_blank"  href="/search?cat=294">空调</a>  <a target="_blank"  href="/search?cat=296">洗衣机</a>  <a target="_blank"  href="/search?cat=298">其他大家电</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=285">生活电器<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=299">净化保暖</a>  <a target="_blank"  href="/search?cat=300">打扫用品</a>  <a target="_blank"  href="/search?cat=301">个人护理</a>  <a target="_blank"  href="/search?cat=302">其他生活电器</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=287">3C数码<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=304">手机</a>  <a target="_blank"  href="/search?cat=305">相机</a>  <a target="_blank"  href="/search?cat=307">电脑</a>  <a target="_blank"  href="/search?cat=309">智能手表</a>  <a target="_blank"  href="/search?cat=311">数码配件</a>  <a target="_blank"  href="/search?cat=313">其他3C数码</a> 
+               </dd>
+          </dl>
+           </div>
+         </div>
+      <div class="sub-class-right">
+        <div class="adv-promotions"> 
+           <a title="" href="https://www1.cnrmall.com/goods/6391" target="_blank"> <img src="https://pic.cnrmall.com/image/02/86/0286dee8414537d0a19b6f17c2995b0b.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=283" target="_blank"> <img src="https://pic.cnrmall.com/image/1f/60/1f60c133b9516407f43278acd348b01b.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=285" target="_blank"> <img src="https://pic.cnrmall.com/image/bd/de/bddee3ca0c707baa771586cea6380d13.jpg" > </a>  </div>
+      </div>
+       </div>
+  </li>
+  <!--<li cat_menu_id="10" class="odd">-->
+  <li cat_menu_id="10" class="cate-menu-item"> 
+    <div class="cate-menu-box">
+    <a target="_blank" class="cate-menu-lk" href="/search?cat=203">珠宝配饰</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=245">时尚钟表</a><span class="cate-menu-line">/</span> 
+    </div>
+    <div class="cate-part" cat_menu_id="10">
+      <div class="cate-part-col1">         <div class="cate-detail"> 
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=204">珠宝饰品<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=205">翡翠玉石</a>  <a target="_blank"  href="/search?cat=206">水晶玛瑙</a>  <a target="_blank"  href="/search?cat=207">钻石财宝</a>  <a target="_blank"  href="/search?cat=208">珍珠</a>  <a target="_blank"  href="/search?cat=209">其他珠宝饰品</a>  <a target="_blank"  href="/search?cat=395">琥珀蜜蜡</a>  <a target="_blank"  href="/search?cat=396">珊瑚</a>  <a target="_blank"  href="/search?cat=402">猛犸象牙</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=245">钟表文玩<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=247">手串把件</a>  <a target="_blank"  href="/search?cat=248">手表/座钟</a>  <a target="_blank"  href="/search?cat=251">其他钟表文玩</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=253">时尚配饰<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=254">一般饰品</a>  <a target="_blank"  href="/search?cat=258">其他时尚配饰</a>  <a target="_blank"  href="/search?cat=411">墨镜</a>  <a target="_blank"  href="/search?cat=412">腰带</a> 
+               </dd>
+          </dl>
+           </div>
+         </div>
+      <div class="sub-class-right">
+        <div class="adv-promotions"> 
+           <a title="" href="https://www1.cnrmall.com/search?cat=204" target="_blank"> <img src="https://pic.cnrmall.com/image/92/94/9294e68bfb5a9cac6f1870e6c9a8d5da.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=253" target="_blank"> <img src="https://pic.cnrmall.com/image/05/3a/053a7a93e5c08dbc4458913ab37b53eb.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=248" target="_blank"> <img src="https://pic.cnrmall.com/image/5a/5f/5a5fbd77758a8b9ba8fcd7d1e18ef13a.jpg" > </a>  </div>
+      </div>
+       </div>
+  </li>
+  <!--<li cat_menu_id="11" class="even">-->
+  <li cat_menu_id="11" class="cate-menu-item"> 
+    <div class="cate-menu-box">
+    <a target="_blank" class="cate-menu-lk" href="/search?cat=266">服饰内衣</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=266">鞋靴</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=286">箱包</a><span class="cate-menu-line">/</span> 
+    </div>
+    <div class="cate-part" cat_menu_id="11">
+      <div class="cate-part-col1">         <div class="cate-detail"> 
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=266">服装鞋靴<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=268">男士内衣</a>  <a target="_blank"  href="/search?cat=269">女士内衣</a>  <a target="_blank"  href="/search?cat=271">男女袜子</a>  <a target="_blank"  href="/search?cat=273">家居服</a>  <a target="_blank"  href="/search?cat=275">塑身内衣</a>  <a target="_blank"  href="/search?cat=276">保暖内衣</a>  <a target="_blank"  href="/search?cat=277">男装</a>  <a target="_blank"  href="/search?cat=278">女装</a>  <a target="_blank"  href="/search?cat=279">男鞋</a>  <a target="_blank"  href="/search?cat=280">女鞋</a>  <a target="_blank"  href="/search?cat=282">帽子</a>  <a target="_blank"  href="/search?cat=298">配饰</a>  <a target="_blank"  href="/search?cat=284">其他服装鞋帽</a>  <a target="_blank"  href="/search?cat=403">童装服饰</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=286">箱包<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=288">男士包</a>  <a target="_blank"  href="/search?cat=289">女士包</a>  <a target="_blank"  href="/search?cat=291">学生书包</a>  <a target="_blank"  href="/search?cat=292">钱包/卡包</a>  <a target="_blank"  href="/search?cat=295">拉杆箱</a>  <a target="_blank"  href="/search?cat=297">其他箱包</a> 
+               </dd>
+          </dl>
+           </div>
+         </div>
+      <div class="sub-class-right">
+        <div class="adv-promotions"> 
+           <a title="" href="https://www1.cnrmall.com/search?cat=266" target="_blank"> <img src="https://pic.cnrmall.com/image/f4/df/f4dfc91e7cc983cf964671425be82848.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=269" target="_blank"> <img src="https://pic.cnrmall.com/image/6a/37/6a37dde84e7c53c8a264b7dca371d4fb.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=280" target="_blank"> <img src="https://pic.cnrmall.com/image/55/66/556609cf6e39f08ace7a4c70d769bf40.jpg" > </a>  </div>
+      </div>
+       </div>
+  </li>
+  <!--<li cat_menu_id="12" class="odd">-->
+  <li cat_menu_id="12" class="cate-menu-item"> 
+    <div class="cate-menu-box">
+    <a target="_blank" class="cate-menu-lk" href="/search?cat=351">美妆身体</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=154">个护清洁</a><span class="cate-menu-line">/</span> 
+    </div>
+    <div class="cate-part" cat_menu_id="12">
+      <div class="cate-part-col1">         <div class="cate-detail"> 
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=353">面部护理<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=354">洁面</a>  <a target="_blank"  href="/search?cat=355">化妆水</a>  <a target="_blank"  href="/search?cat=356">乳液/面霜</a>  <a target="_blank"  href="/search?cat=357">精华/肌底</a>  <a target="_blank"  href="/search?cat=359">眼霜</a>  <a target="_blank"  href="/search?cat=360">面膜/眼膜</a>  <a target="_blank"  href="/search?cat=363">润唇膏/膜</a>  <a target="_blank"  href="/search?cat=373">防晒</a>  <a target="_blank"  href="/search?cat=374">卸妆</a>  <a target="_blank"  href="/search?cat=375">护肤套装</a>  <a target="_blank"  href="/search?cat=376">男士护肤</a>  <a target="_blank"  href="/search?cat=378">其他面部护理</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=379">身体护理<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=380">沐浴清洁</a>  <a target="_blank"  href="/search?cat=381">身体护理</a>  <a target="_blank"  href="/search?cat=382">手部护理</a>  <a target="_blank"  href="/search?cat=383">足部护理</a>  <a target="_blank"  href="/search?cat=384">头部清洁</a>  <a target="_blank"  href="/search?cat=385">头部护理</a>  <a target="_blank"  href="/search?cat=386">其他个人护理</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=387">美发护理<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=388">染发</a>  <a target="_blank"  href="/search?cat=389">烫发</a>  <a target="_blank"  href="/search?cat=390">男女假发</a>  <a target="_blank"  href="/search?cat=391">定型美发</a>  <a target="_blank"  href="/search?cat=392">发质护理</a>  <a target="_blank"  href="/search?cat=393">其他美发护理</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=156">女性护理<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=163">卫生巾</a>  <a target="_blank"  href="/search?cat=165">卫生护垫</a>  <a target="_blank"  href="/search?cat=167">成人纸尿裤</a>  <a target="_blank"  href="/search?cat=169">其他卫生护理</a>  <a target="_blank"  href="/search?cat=171">私处护理</a>  <a target="_blank"  href="/search?cat=173">其他私处护理</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=158">衣物清洁<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=176">洗衣液</a>  <a target="_blank"  href="/search?cat=178">洗衣粉</a>  <a target="_blank"  href="/search?cat=179">洗衣皂</a>  <a target="_blank"  href="/search?cat=180">洗衣凝珠</a>  <a target="_blank"  href="/search?cat=182">内衣清洁</a>  <a target="_blank"  href="/search?cat=183">衣物除菌液</a>  <a target="_blank"  href="/search?cat=185">柔顺剂</a>  <a target="_blank"  href="/search?cat=187">其他衣物清洁</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=161">家庭清洁<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=190">餐具清洁</a>  <a target="_blank"  href="/search?cat=210">消毒剂/液</a>  <a target="_blank"  href="/search?cat=211">油污清洁</a>  <a target="_blank"  href="/search?cat=212">地板护理</a>  <a target="_blank"  href="/search?cat=213">水垢清洁</a>  <a target="_blank"  href="/search?cat=214">干燥除湿/驱虫</a>  <a target="_blank"  href="/search?cat=215">空气清新剂</a>  <a target="_blank"  href="/search?cat=216">马桶清洁</a>  <a target="_blank"  href="/search?cat=217">其他清洁用品</a>  <a target="_blank"  href="/search?cat=218">皮革养护</a>  <a target="_blank"  href="/search?cat=219">其他家庭清洁</a>  <a target="_blank"  href="/search?cat=413">清洁工具</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=404">口腔护理<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=405">牙膏</a>  <a target="_blank"  href="/search?cat=406">牙刷</a>  <a target="_blank"  href="/search?cat=407">漱口水</a>  <a target="_blank"  href="/search?cat=408">其他口腔护理</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=314">彩妆<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=315">面部彩妆</a>  <a target="_blank"  href="/search?cat=316">唇部彩妆</a>  <a target="_blank"  href="/search?cat=317">眼部彩妆</a>  <a target="_blank"  href="/search?cat=318">美甲</a>  <a target="_blank"  href="/search?cat=319">彩妆工具</a>  <a target="_blank"  href="/search?cat=320">彩妆套装</a>  <a target="_blank"  href="/search?cat=322">其他彩妆</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=306">香水<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=308">男士香水</a>  <a target="_blank"  href="/search?cat=310">女士香水</a>  <a target="_blank"  href="/search?cat=312">其他香水</a> 
+               </dd>
+          </dl>
+           </div>
+         </div>
+      <div class="sub-class-right">
+        <div class="adv-promotions"> 
+           <a title="" href="https://www1.cnrmall.com/search?cat=353" target="_blank"> <img src="https://pic.cnrmall.com/image/a8/d0/a8d0eb7cb202d59a512d3c7cc3c845da.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=387" target="_blank"> <img src="https://pic.cnrmall.com/image/45/68/45688e2b55b11913c48c4223e734dc92.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/goods/5110" target="_blank"> <img src="https://pic.cnrmall.com/image/19/41/194130c6f0196144317e750b566f82fe.jpg" > </a>  </div>
+      </div>
+       </div>
+  </li>
+  <!--<li cat_menu_id="13" class="even">-->
+  <li cat_menu_id="13" class="cate-menu-item"> 
+    <div class="cate-menu-box">
+    <a target="_blank" class="cate-menu-lk" href="/search?cat=323">保健器材</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=324">养生仪器</a><span class="cate-menu-line">/</span> 
+    </div>
+    <div class="cate-part" cat_menu_id="13">
+      <div class="cate-part-col1">         <div class="cate-detail"> 
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=323">保健器材<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=325">健身器材</a>  <a target="_blank"  href="/search?cat=326">按摩器材</a>  <a target="_blank"  href="/search?cat=327">矫正器材</a>  <a target="_blank"  href="/search?cat=328">康复辅助</a>  <a target="_blank"  href="/search?cat=330">其他养生器材</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=324">保健仪器<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=332">日常护理</a>  <a target="_blank"  href="/search?cat=334">中医保健</a>  <a target="_blank"  href="/search?cat=336">理疗仪器</a>  <a target="_blank"  href="/search?cat=338">频谱仪</a>  <a target="_blank"  href="/search?cat=352">其他保健仪器</a> 
+               </dd>
+          </dl>
+           </div>
+         </div>
+      <div class="sub-class-right">
+        <div class="adv-promotions"> 
+           <a title="" href="https://www1.cnrmall.com/search?cat=324" target="_blank"> <img src="https://pic.cnrmall.com/image/40/77/40771ee8684fd4cd48e92d33106d0021.jpg" > </a>  <a title="" href="https://www.cnrmall.com/goods/35131" target="_blank"> <img src="https://pic.cnrmall.com/image/23/9f/239f0f1e7074aaf97c9ad3f72e17bfcf.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=323" target="_blank"> <img src="https://pic.cnrmall.com/image/2a/f0/2af014cdf486e9acfab436c134164d46.jpg" > </a>  </div>
+      </div>
+       </div>
+  </li>
+  <!--<li cat_menu_id="14" class="odd">-->
+  <li cat_menu_id="14" class="cate-menu-item"> 
+    <div class="cate-menu-box">
+    <a target="_blank" class="cate-menu-lk" href="/search?cat=226">金银质饰品</a><span class="cate-menu-line">/</span> <a target="_blank" class="cate-menu-lk" href="/search?cat=394">字画收藏</a><span class="cate-menu-line">/</span> 
+    </div>
+    <div class="cate-part" cat_menu_id="14">
+      <div class="cate-part-col1">         <div class="cate-detail"> 
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=226">金质饰品<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=229">足金饰品</a>  <a target="_blank"  href="/search?cat=231">铂金/K金饰品</a>  <a target="_blank"  href="/search?cat=232">其他金质饰品</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=235">银质制品<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=237">足银饰品</a>  <a target="_blank"  href="/search?cat=240">银合金饰品</a>  <a target="_blank"  href="/search?cat=242">其他银质饰品</a> 
+               </dd>
+          </dl>
+          
+          <dl class="cate-detail-item">
+            <dt class="cate-detail-tit"> 
+               <a target="_blank"  href="/search?cat=245">钟表文玩<i class="fa fa-angle-right m-l-5 m-r-0" aria-hidden="true"></i></a> </dt>
+            <dd class="cate-detail-con"> 
+               <a target="_blank"  href="/search?cat=394">字画收藏</a> 
+               </dd>
+          </dl>
+           </div>
+         </div>
+      <div class="sub-class-right">
+        <div class="adv-promotions"> 
+           <a title="" href="https://www1.cnrmall.com/search?cat=235" target="_blank"> <img src="https://pic.cnrmall.com/image/3d/54/3d54d9f12f0d9c296c91f74f31d8559a.jpg" > </a>  <a title="" href="https://www1.cnrmall.com/search?cat=394" target="_blank"> <img src="https://pic.cnrmall.com/image/66/c8/66c8f990e7aca05c041d0fd929dc7e65.jpg" > </a>  <a title="" href="https://www.cnrmall.com/search?cat=394&amp;attr=1027-5572" target="_blank"> <img src="https://pic.cnrmall.com/image/12/41/12410913a772ca3fc2702aaf1dcd2582.jpg" > </a>  </div>
+      </div>
+       </div>
+  </li>
+</ul>
+</div>
+    </div>
+    <ul class="site-menu">
+      <li><a href="/" class="current">首页</a></li>
+      <li><a target="_blank" href="/tv"  target="_blank">TV直播</a></li>
+      <li><a target="_blank" href="http://lnt.cnrmall.com/">跨境频道</a></li>
+      <!-- <li><a target="_blank" href="/brand" >品牌</a></li>
+      <li><a target="_blank" href="/pointscenter/index" >积分中心</a></li>
+      <li><a target="_blank" href="/vouchercenter/index" >领券中心</a></li>
+      <li><a target="_blank" href="/trys" >试用</a></li>
+      <li><a target="_blank" href="/seckill" >秒杀</a></li>
+      <li>
+          <a target="_blank" href="/advertorial/article/list">推文</a>
+      </li> -->
+    </ul>
+    <!-- <div class="mobil-mall-ad"><img src="https://statics.cnrmall.com/web/static/img/top_app_c2hvcG5j.gif"/></div> -->
+  </div>
+</nav>
+<div class="nch-breadcrumb-layout">
+  <div class="nch-breadcrumb wrapper"><i class="fa fa-home"></i> 
+     <span><a href="/search?cat=281">家电数码</a></span><span class="arrow">></span> 
+    
+     <span><a href="/search?cat=287">3C数码</a></span><span class="arrow">></span> 
+    
+     <span><a href="/search?cat=311">数码配件</a></span><span class="arrow">></span> 
+    
+     <span>viken（维肯）移动电源 V82/20000mAh</span> 
+     </div>
+</div>
+<script src="https://statics.cnrmall.com/web/static/js/common/header.js"></script>
+<link href="https://statics.cnrmall.com/web/static/css/web_toolbar.css" rel="stylesheet" type="text/css">
+  <div class="nc-toolbar-wrap" id="ncGlobalToolbar">
+    <div class="nc-toolbar">
+      <!-- S 弹出层区域 -->
+      <div class="nc-toolbar-panels">
+        <!-- S 会员信息展示区域 -->
+        <div data-nc-tbar-name="member" class="nc-toolbar-panel nc-tbar-panel-jdvip" style="visibility: visible; z-index: 2;">
+          <h3 class="nc-tbar-panel-header J-panel-header"> <span class="title"> <i></i> <em class="title">商城会员</em> </span> <span class="close-panel" data-nc-tbar-close></span> </h3>
+          <div class="nc-tbar-panel-main">  </div>
+          <div class="nc-tbar-panel-footer"></div>
+        </div>
+        <!-- E 会员信息展示区域 -->
+
+        <!-- S 购物车展示区域 -->
+        <div data-nc-tbar-name="cart" class="nc-toolbar-panel nc-tbar-panel-cart" style="visibility: visible; z-index: 2;">
+          <h3 class="nc-tbar-panel-header J-panel-header"> <a href="/cart/list" target="_blank" class="title" > <i></i> <em class="title">购物车</em> </a> <span class="close-panel"></span> </h3>
+          <div class="nc-tbar-panel-main">
+            <div class="nc-tbar-panel-content" style="height: 566px;">
+              <div>
+                <div class="nc-tbar-cart-list" id="tbarCartGoodsList">                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nc-tbar-panel-footer">
+            <div class="nc-tbar-checkout" data-goods-price>
+              <div class="jtc-number">共&nbsp;<strong id="tbarCartCount">0</strong>&nbsp;种商品</div>
+              <div class="jtc-sum"> 共计： <strong class="tbarCartotal" id="tbarCartotal"></strong> </div>
+              <a class="jtc-btn" href="/cart/list" target="_blank">去购物车结算</a> </div>
+          </div>
+        </div>
+        <!-- E 购物车展示区域 -->
+        
+        <!-- S 关注 -->
+        <div data-nc-tbar-name="follow" class="nc-toolbar-panel nc-tbar-panel-follow">
+          <h3 class="nc-tbar-panel-header J-panel-header"> <a href="javascript:;" class="title" > <i></i> <em class="title">我的收藏</em> </a> <span class="close-panel"></span> </h3>
+          <div class="nc-tbar-panel-main">
+            <div class="follow-tabnav">
+              <ul>
+                <li class="ui-switchable-item curr" data-nc-index="goods"> <a>商品</a> <span></span> </li>
+                <li class="ui-switchable-item" data-nc-index="store" style="border-right:0;"> <a>店铺</a> </li>
+              </ul>
+            </div>
+            <div class="nc-tbar-panel-content">
+              <div class="follow-tabcontents" id="tbarFollowTab">
+                <div id="tbarFollowTabPanel" style="width:600px;position:relative">
+                  <div class="follow-tab-content follow-product-list follow-tab-content-slected" id="followTabContent_goods">
+                    <ul id="goodsFavListTbarFollow">
+                    </ul>
+                    <a href="/member/favorites/goods" class="follow-bottom-more" target="_blank">查看更多收藏商品 &gt;&gt;</a> </div>
+                  <div class="follow-tab-content follow-shop-list" id="followTabContent_store">
+                    <ul id="storeFavListTbarFollow">
+                    </ul>
+                    <a href="/member/favorites/store" class="follow-bottom-more" target="_blank">查看更多收藏店铺 &gt;&gt;</a> </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nc-tbar-panel-footer J-panel-footer"></div>
+        </div>
+        <!-- E 关注 -->
+        
+        <!-- S 足迹 -->
+        <div data-nc-tbar-name="history"  class="nc-toolbar-panel nc-tbar-panel-history">
+          <h3 class="nc-tbar-panel-header"> <a href="javascript:;" class="title"> <i></i> <em class="title">我的足迹</em> </a> <span class="close-panel"></span> </h3>
+          <div class="nc-tbar-panel-main">
+            <div class="nc-tbar-panel-content" id="histbarPanelContent" >
+              <div class="jt-history-wrap">
+                <ul id="hisListTbar">
+
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="tbar-panel-footer"></div>
+        </div>
+        <!-- E 足迹 -->
+      
+        <!-- S 二维码展示区域 -->
+        <div class="nc-toolbar-panel nc-tbar-panel-qrcode"  data-nc-tbar-name="qrcode" >
+          <h3 class="nc-tbar-panel-header J-panel-header"> <i></i> <em class="title">二维码</em><span class="close-panel"></span> </h3>
+          <div class="nc-qrcode-container">
+            <div class="nc-tbar-qrcode-item">
+                <img src="https://pic.cnrmall.com/qr/app/url.gif">
+                <div class="nc-app-download">
+                  <h1>扫描二维码<br/>更多优惠关注微信公众号</h1>
+                </div>
+            </div>
+          </div>
+        </div>
+        <!-- E 二维码展示区域 -->
+
+        <!-- S 优惠券展示区域 -->
+        <div data-nc-tbar-name="couponActivity" class="nc-toolbar-panel nc-tbar-panel-coupon" style="visibility: visible; z-index: 2;">
+          <h3 class="nc-tbar-panel-header J-panel-header">
+            <span class="title"><i></i><em class="title">优惠券</em></span>
+            <span class="close-panel" data-nc-tbar-close></span>
+          </h3>
+          <div class="nc-tbar-panel-main">
+            <div class="nc-tbar-panel-content">
+              <div><div class="nc-tbar-coupon-activity-list" id="tbarCouponActivityList"></div></div>
+            </div>
+          </div>
+          <div class="nc-tbar-panel-footer"></div>
+
+          <!-- S 优惠券活动项模板 -->
+          <script type="text/html" id="couponActivityItemModel">
+            <div class="coupon-activity-item <% if(searchCouponActivityVo.searchDataSource=='coupon') { %>platform<% } %>" id="couponActivityItem_<%- searchCouponActivityVo.searchSn %>" >
+              <div class="v-type">
+                <!-- 优惠券金额 -->
+                <div class="v-price"><strong class="number number-20 number-36"><%= Nc.priceFormatNew(searchCouponActivityVo.couponPrice) %></strong><div class="txt"><span><%- searchCouponActivityVo.limitAmountText %></span></div></div>
+                <div class="v-range">
+                  <!-- 优惠券使用范围 -->
+                  <div class="range-item"><p><%- searchCouponActivityVo.useGoodsRangeExplain %></p></div>
+                  <!-- 优惠券使用平台类型 -->
+                  <% if(searchCouponActivityVo.usableClientType!="all") { %>
+                  <div class="range-item"><%- searchCouponActivityVo.usableClientTypeText %></div>
+                  <% } %>
+                </div>
+              </div>
+              <div class="v-opbtns">
+                <a href="javascript:;" nc-type="receiveBlock" data-search-sn="<%- searchCouponActivityVo.searchSn %>" <% if(memberIsReceive==1) { %>style="display:none;"<% } %>><b class="semi-circle"></b>立即领取</a>
+                <a href="javascript:;" nc-type="toGoodsListBlock" data-search-data-source="<%- searchCouponActivityVo.searchDataSource %>" data-store-id="<%- searchCouponActivityVo.storeId %>" data-activity-id="<%- searchCouponActivityVo.activityId %>" <% if(memberIsReceive==0) { %>style="display:none;"<% } %>><b class="semi-circle"></b>立即使用</a>
+              </div>
+              <div class="v-state">
+                <div class="btn-state <% if(memberIsReceive==1) { %>btn-geted<% } %>" nc-type="stateBlock"></div>
+              </div>
+            </div>
+          </script>
+          <!-- E 优惠券活动项模板 -->
+          <!-- S 暂无优惠券活动模板 -->
+          <script type="text/html" id="couponActivityNoDataModel">
+            <div class="nc-tbar-tipbox2">
+              <div class="tip-inner">
+                <i class="i-face-fd"></i>
+                <div class="tip-text">暂无可领的优惠券~</div>
+              </div>
+            </div>
+          </script>
+          <!-- E 暂无优惠券活动模板 -->
+        </div>
+        <!-- E 优惠券展示区域 -->
+      </div>
+      <!-- E 弹出层区域 -->
+
+      <div class="nc-toolbar-header"></div>
+
+      <!-- S 悬浮小图展示区域 -->
+      <div class="nc-toolbar-tabs"> <!-- 会员 -->
+        <div data-nc-tag-type="member" class="nc-toolbar-tab nc-tbar-tab-user"> <i class="tab-tip"></i> <i class="tab-ico"></i> <em class="tab-text">商城会员</em> </div>
+        <!-- 购物车 -->
+        <div data-nc-tag-type="cart" class="nc-toolbar-tab nc-tbar-tab-cart" > <i class="tab-ico"></i> <em class="tab-text">购物车</em> <span class="tab-sub" style="display: none;" id="tbarCartNum"></span> </div>
+        <!-- 优惠券 -->
+        <div data-nc-tag-type="couponActivity" class="nc-toolbar-tab nc-tbar-tab-coupon" style="display: none;"> <i class="tab-ico"></i> <em class="tab-text">优惠券</em></div>
+        <!-- 关注 -->
+        <div data-nc-tag-type="follow" class="nc-toolbar-tab nc-tbar-tab-follow" > <i class="tab-ico"></i> <em class="tab-text">我的收藏</em> </div>
+        <!-- 足迹 -->
+        <div data-nc-tag-type="history" class="nc-toolbar-tab nc-tbar-tab-history" > <i class="tab-ico"></i> <em class="tab-text">我的足迹</em> </div>
+        <!-- 消息 -->
+        <div data-nc-tag-type="message" class="nc-toolbar-tab nc-tbar-tab-message"> <a href="javascript:;"> <i class="tab-ico"></i> <em class="tab-text">我的消息</em> </a> </div>
+        <!-- 二维码 -->
+        <div data-nc-tag-type="qrcode" class="nc-toolbar-tab nc-tbar-tab-qrCode"><i class="tab-ico"></i><em class="tab-text">二维码</em></div>
+      </div>
+      <!-- E 悬浮小图展示区域 -->
+
+      <div class="nc-toolbar-footer">
+        <div class=" nc-toolbar-tab nc-tbar-tab-top"> <a href="javascript:;" id="tbarGoTop"> <i class="tab-ico"></i> <em class="tab-text">顶部</em> </a> </div>
+      </div>
+
+      <div class="nc-toolbar-mini"></div>
+
+    </div>
+  </div>
+
+  <link href="https://statics.cnrmall.com/public/toolkit/perfect-scrollbar/v120/perfect-scrollbar.min.css" rel="stylesheet"/>
+  <script src="https://statics.cnrmall.com/public/toolkit/perfect-scrollbar/v120/perfect-scrollbar.min.js"></script>
+  <script src="https://statics.cnrmall.com/web/static/js/common/toolbar.js"></script>
+    <script>
+      $(function() {
+          $("#ncGlobalToolbar").find("[data-nc-tag-type='message']").hide();
+      });
+    </script>
+
+  <style>
+    .vcp-player{ background-color: #fff;}
+      .layui-layer-wrap dl dt,.layui-layer-wrap dl dd{padding: 0px !important; border-left: 0px !important; line-height: normal !important; }
+      .ncs-cart-popup dl dd{margin:0 0 15px 0px !important;}
+      .ncs-cart-popup dl dd.special{margin-top: 15px !important}
+      .ncs-cart-popup dl dt{margin-bottom:0px !important }
+      .layui-layer-wrap dl .arriva{padding:8px 1% 8px 0 !important; line-height: 28px !important;}
+      .layui-layer-wrap dl .arrivas{padding:8px 0 8px 1% !important; line-height: 28px !important; border-left: 1px solid #f5f5f5 !important  }
+      .nc-layer-msg{text-align: center;}
+      .nc-layer-msg p{ margin-top:5px;font-size: 12px; }
+      .block-note{ padding: 5px; margin:10px 10px; border: 1px solid #FBEED5; border-radius: 3px; background-color: #FCF8E3; line-height: 18px; color: #C09853;}
+  </style>
+  <link href="https://statics.cnrmall.com/web/static/css/web_goods.css" rel="stylesheet" type="text/css">
+  <link href="https://statics.cnrmall.com/public/toolkit/magiczoomplus/magiczoomplus.css" rel="stylesheet" type="text/css">
+  <script src="https://statics.cnrmall.com/public/toolkit/magiczoomplus/magiczoomplus.js"></script> 
+  <script src="https://statics.cnrmall.com/public/toolkit/jquery-qrcode/jquery.qrcode.js"></script> 
+  <script src="https://statics.cnrmall.com/public/toolkit/jquery-qrcode/qrcode.js"></script>
+  <div class="ncs-detail-wrap">
+    <!-- 商品视频 -->
+    <div class="ncs-detail"> <!-- S 商品图片 -->
+      <div id="ncsGoodsPicture" class="ncs-goods-picture image_zoom"> <!--大图--> <a id="Zoomer" href="https://pic4.cnrmall.com/image/b0/63/b06301b12caa3690c2817459726051df.jpg" class="MagicZoomPlus" rel="selectors-effect: false; zoom-width: 650; zoom-height: 500; expand-size: original"> <img src="https://pic4.cnrmall.com/image/b0/63/b06301b12caa3690c2817459726051df.jpg@360w_360h"/> </a> <!--小图-->
+        <div class="controller"> <a title="向前" id="GoodsPicPrevBtn" class="cBtn prev fa fa-angle-left" href="javascript:;"></a>
+          <div class="goods-pic-box">
+            <ul id="ncsGoodsPicList">
+               <li  data-color-id="1"> <a href="javascript:;" rev-herf="https://pic3.cnrmall.com/image/b0/63/b06301b12caa3690c2817459726051df.jpg" rev="https://pic1.cnrmall.com/image/b0/63/b06301b12caa3690c2817459726051df.jpg@360w_360h"
+                      class="current" > <img src="https://pic2.cnrmall.com/image/b0/63/b06301b12caa3690c2817459726051df.jpg@60w_60h"/> </a>
+              </li>
+               <li  data-color-id="1"> <a href="javascript:;" rev-herf="https://pic1.cnrmall.com/image/43/b8/43b8fb1a35002c61d6ac584a1f8e7651.jpg" rev="https://pic5.cnrmall.com/image/43/b8/43b8fb1a35002c61d6ac584a1f8e7651.jpg@360w_360h"
+                       > <img src="https://pic1.cnrmall.com/image/43/b8/43b8fb1a35002c61d6ac584a1f8e7651.jpg@60w_60h"/> </a>
+              </li>
+               <li  data-color-id="1"> <a href="javascript:;" rev-herf="https://pic3.cnrmall.com/image/fd/4c/fd4ce48ad0338a90f12c7b378fd5543e.jpg" rev="https://pic2.cnrmall.com/image/fd/4c/fd4ce48ad0338a90f12c7b378fd5543e.jpg@360w_360h"
+                       > <img src="https://pic5.cnrmall.com/image/fd/4c/fd4ce48ad0338a90f12c7b378fd5543e.jpg@60w_60h"/> </a>
+              </li>
+               <li  data-color-id="1"> <a href="javascript:;" rev-herf="https://pic5.cnrmall.com/image/eb/96/eb963495c174e47cf7378475b3f80af0.jpg" rev="https://pic3.cnrmall.com/image/eb/96/eb963495c174e47cf7378475b3f80af0.jpg@360w_360h"
+                       > <img src="https://pic1.cnrmall.com/image/eb/96/eb963495c174e47cf7378475b3f80af0.jpg@60w_60h"/> </a>
+              </li>
+               <li style="display:none;" data-color-id="2"> <a href="javascript:;" rev-herf="https://pic3.cnrmall.com/image/b0/63/b06301b12caa3690c2817459726051df.jpg" rev="https://pic3.cnrmall.com/image/b0/63/b06301b12caa3690c2817459726051df.jpg@360w_360h"
+                       > <img src="https://pic1.cnrmall.com/image/b0/63/b06301b12caa3690c2817459726051df.jpg@60w_60h"/> </a>
+              </li>
+               <li style="display:none;" data-color-id="2"> <a href="javascript:;" rev-herf="https://pic5.cnrmall.com/image/43/b8/43b8fb1a35002c61d6ac584a1f8e7651.jpg" rev="https://pic5.cnrmall.com/image/43/b8/43b8fb1a35002c61d6ac584a1f8e7651.jpg@360w_360h"
+                       > <img src="https://pic4.cnrmall.com/image/43/b8/43b8fb1a35002c61d6ac584a1f8e7651.jpg@60w_60h"/> </a>
+              </li>
+               <li style="display:none;" data-color-id="2"> <a href="javascript:;" rev-herf="https://pic5.cnrmall.com/image/fd/4c/fd4ce48ad0338a90f12c7b378fd5543e.jpg" rev="https://pic4.cnrmall.com/image/fd/4c/fd4ce48ad0338a90f12c7b378fd5543e.jpg@360w_360h"
+                       > <img src="https://pic1.cnrmall.com/image/fd/4c/fd4ce48ad0338a90f12c7b378fd5543e.jpg@60w_60h"/> </a>
+              </li>
+               <li style="display:none;" data-color-id="2"> <a href="javascript:;" rev-herf="https://pic1.cnrmall.com/image/eb/96/eb963495c174e47cf7378475b3f80af0.jpg" rev="https://pic2.cnrmall.com/image/eb/96/eb963495c174e47cf7378475b3f80af0.jpg@360w_360h"
+                       > <img src="https://pic1.cnrmall.com/image/eb/96/eb963495c174e47cf7378475b3f80af0.jpg@60w_60h"/> </a>
+              </li>
+            </ul>
+          </div>
+          <a title="向后" id="GoodsPicNextBtn" class="cBtn next fa fa-angle-right" href="javascript:;"></a> </div>
+        <!-- E 商品图片 -->
+        <div class="ncs-handle" id="content"> <a href="javascript:;" class="favorite" nc_type="goodsFavoritesBtn" data-param="{'commonId':'54801'}"><i class="fa fa-star-o" aria-hidden="true"></i>收藏商品<em class="m-l-5" nc_type="goodsFavoritesNum">0</em> </a>
+          <div class="share"><i class="fa fa-share-alt" aria-hidden="true"></i>分享<i class="m-l-5 fa fa-caret-down" aria-hidden="true"></i> <!-- JiaThis Button BEGIN -->
+            <!-- <input type="hidden" name="jiathisImage" value="https://pic3.cnrmall.com/image/b0/63/b06301b12caa3690c2817459726051df.jpg@160w_160h"/> -->
+                        <!-- <input type="hidden" name="jiathisImage" value="https://pic5.cnrmall.com/image/43/b8/43b8fb1a35002c61d6ac584a1f8e7651.jpg@160w_160h"/> -->
+                        <!-- <input type="hidden" name="jiathisImage" value="https://pic1.cnrmall.com/image/fd/4c/fd4ce48ad0338a90f12c7b378fd5543e.jpg@160w_160h"/> -->
+                        <!-- <input type="hidden" name="jiathisImage" value="https://pic5.cnrmall.com/image/eb/96/eb963495c174e47cf7378475b3f80af0.jpg@160w_160h"/> -->
+                        <!-- <input type="hidden" name="jiathisImage" value="https://pic4.cnrmall.com/image/b0/63/b06301b12caa3690c2817459726051df.jpg@160w_160h"/> -->
+                                                 <sub class="J-share-data" 
+                    data-title ="viken（维肯）移动电源 V82/20000mAh"
+                    data-summary=""
+                    data-url ="/goods/54801"
+                    data-wap-url="https://m1.cnrmall.com/tmpl/product_detail.html?commonId=54801"
+                    data-pic="https://pic5.cnrmall.com/image/b0/63/b06301b12caa3690c2817459726051df.jpg@160w_160h||https://pic1.cnrmall.com/image/43/b8/43b8fb1a35002c61d6ac584a1f8e7651.jpg@160w_160h||https://pic3.cnrmall.com/image/fd/4c/fd4ce48ad0338a90f12c7b378fd5543e.jpg@160w_160h||https://pic4.cnrmall.com/image/eb/96/eb963495c174e47cf7378475b3f80af0.jpg@160w_160h||https://pic2.cnrmall.com/image/b0/63/b06301b12caa3690c2817459726051df.jpg@160w_160h||"> <a class="J-share-btn" href="javascript:;" style="font-size: 12px;" data-web-id="tsina">新浪</a> <a class="J-share-btn" href="javascript:;" style="font-size: 12px;" data-web-id="weixin">微信</a> </sub> <!-- JiaThis Button END --> </div>
+          <a href="javascript:;" class="goods-QRcode"><i class="fa fa-qrcode" aria-hidden="true"></i>移动端购买
+          <div class="QRcode-pic"><img src="https://pic3.cnrmall.com/qr/262/54801.gif" /></div>
+          </a></div>
+      </div>
+      <!-- E 商品图片及收藏分享 -->
+      <!-- S 商品基本信息 -->
+      <!-- S 商品规格值-->
+        <!-- 零售/虚拟/海外模式 -->
+<!-- 零售 -->
+
+<!-- S 商品基本信息 -->
+
+<div class="ncs-goods-summary model-retail">
+  <div class="ncs-goods-tag"></div>
+  <div class="ncs-goods-name">
+    <h1>viken（维肯）移动电源 V82/20000mAh</h1>
+    <strong></strong> </div>
+  <div class="ncs-meta pr">
+    <!-- S 商品价格 -->
+      <dl class="goods-price" id="goodsPriceHtml">
+        <dt>价格</dt>
+        <dd><span class="goods-price-real"><strong id="rmPrice" class="number number-thin">
+              <span class='yuan'>￥</span><span class='integer'>129</span><span class='pointer'>.</span><span class='decimal'>00</span>
+ </strong>
+
+        <sub class="original-price" id="basePrice" style="display: none !important">
+          <span class='yuan'>￥</span><span class='integer'>129</span><span class='pointer'>.</span><span class='decimal'>00</span>
+         </sub>
+
+</span> </dd>
+      </dl>
+    <!-- S 兑换码 -->
+    <!-- E 兑换码 -->
+    <!-- S 税率 -->
+    <!-- E 税率 -->
+    <!-- E 商品价格 -->
+  </div>
+
+  <!-- S 商品赠品 -->
+  <div class="goods-gift" id="goodsGiftHtml">  </div>
+  <!-- E 商品赠品 -->
+  <!-- S 优惠布局展示-->
+
+    <!-- S 物流与运费新布局展示  -->
+    <div class="ncs-logistics"> 
+      <dl id="ncs-freight" class="ncs-freight">
+        <dt>物流</dt>
+        <dd class="ncs-freight_box">
+          <div class="fl m-r-5">配送至</div>
+          <div id="ncsFreightSelector" class="ncs-freight-select">
+            <div class="text">
+              <div id="areaInfoText">请选择地区</div>
+              <b>∨</b> </div>
+            <div class="content">
+              <div id="ncs-stock" class="ncs-stock" data-widget="tabs">
+                <div class="mt">
+                  <ul class="tab" id="ncsTopTabs">
+                    <li data-index="0" data-widget="tab-item" class="curr"> <a href="#none" class="hover"><em>请选择</em><i> ∨</i></a> </li>
+                  </ul>
+                </div>
+                <div id="stockItem_0" data-widget="tab-content" data-area="0">
+                  <ul class="area-list">
+                  </ul>
+                </div>
+                <div id="stockItem_1" data-widget="tab-content" data-area="1" style="display: none;">
+                  <ul class="area-list">
+                  </ul>
+                </div>
+                <div id="stockItem_2" data-widget="tab-content" data-area="2" style="display: none;">
+                  <ul class="area-list">
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!--<a href="javascript:;" class="close" id="areaPanelClose">关闭</a>--> </div>
+          <div id="ncs-freight-prompt"><strong></strong></div>
+           </dd>
+      </dl>
+     </div>
+    <!-- E 物流与运费新布局展示  -->
+  <!-- 服务 -->
+  <div class="ncs-service">
+    <dl>
+      <dt>服务</dt>
+      <dd>
+          非自营&nbsp;由&nbsp;&nbsp;
+        <a target="_blank" href="/store/262">
+          <span class="service-name">华信盛邦数码专营店&nbsp;&nbsp;</span>
+        </a>
+发货，并提供售后服务。
+      </dd>
+    </dl>
+  </div>
+  <div class="ncs-key" id="nc-spec-panel"> <!-- S 商品规格值-->
+        <input type="hidden" id="goodsData_19622"
+               data-goods-id = "19622"
+               data-goods-full-specs = "颜色：金色"
+               data-goods-storage ="1000"
+               data-goods-price0 = "129"
+                  data-goods-batch-price0 = "129"
+               data-goods-web-usable = "0"
+               data-promotion-type = "0"
+               data-limit-amount = "0"
+               data-goods-is-staff = "0"
+               data-goods-staff-price = "0"
+        />
+        <input type="hidden" id="goodsData_19623"
+               data-goods-id = "19623"
+               data-goods-full-specs = "颜色：玫瑰金"
+               data-goods-storage ="999"
+               data-goods-price0 = "129"
+                  data-goods-batch-price0 = "129"
+               data-goods-web-usable = "0"
+               data-promotion-type = "0"
+               data-limit-amount = "0"
+               data-goods-is-staff = "0"
+               data-goods-staff-price = "0"
+        />
+      <div class="ncs-retail-modal" id="retailModalPanel" data-unit-name="件" data-batch-num0="1"> 
+          <dl>
+            <dt class="ncs-number">颜色</dt>
+            <dd> 
+              <ul>
+                    <!-- 图片类型规格-->
+                    <li class="sp-img"> <a href="javascript:void(0);" data-spec-value="1" class="
+            hovered
+" title="金色"><i class="sp-img-thumb"> <img src="https://pic2.cnrmall.com/image/b0/63/b06301b12caa3690c2817459726051df.jpg@60w_60h"/> </i>金色<sub></sub></a> </li>
+                    <!-- 图片类型规格-->
+                    <li class="sp-img"> <a href="javascript:void(0);" data-spec-value="2" class="
+            
+" title="玫瑰金"><i class="sp-img-thumb"> <img src="https://pic2.cnrmall.com/image/b0/63/b06301b12caa3690c2817459726051df.jpg@60w_60h"/> </i>玫瑰金<sub></sub></a> </li>
+              </ul>
+             </dd>
+          </dl>
+
+        <!-- S 商品列表区域-->
+        <dl class="m-b-10">
+          <dt class="ncs-number">数量</dt>
+          <dd>
+            <div class="amount" id="rmNumValuePanel"> <span href="javascript:;" id="rmNumCut" class="minus crisis" title="减少"><i class="fa fa-minus" aria-hidden="true"></i></span>
+              <input type="text" class="input-text" value="1" id="rmPriceValue" AUTOCOMPLETE="off">
+              <span href="javascript:;" id="rmNumAdd" class="plus" title="增加"><i class="fa fa-plus" aria-hidden="true"></i></span><span class="m-l-5">
+              <!--by[szq] 修改商品单位显示 -->
+              件
+                <!--by[szq] 修改商品单位显示 -->
+            </span></div>
+            <div id="Stock" class="m-l-10 fl" >（库存<span id="rmStock">0</span><!--by[szq] 修改商品单位显示 -->件<!--by[szq] 修改商品单位显示 -->）
+            </div>
+            <div class="stock fl" id="noStock" style="display: none;">库存不足</div>
+          </dd>
+        </dl>
+        <!--<span class="price" id="rmPrice">0.00元</span>--> <!-- E 商品列表区域-->
+        <!-- S 购物清单区域-->
+        <div class="modal-list" id="selGoodsListPanel" style="display: none;">
+          <div class="list-total">
+            <p class="amount"><span class="value" id="ordersNum">0</span> <span class="unit">
+              <!--by[szq] 修改商品单位显示 -->
+  件
+              <!--by[szq] 修改商品单位显示 -->
+          </span></p>
+            <p class="price"><span class="value" id="ordersPrice">0.00</span> <span class="price-unit">元</span></p>
+          </div>
+          <div class="list-selected"> <a class="link-list" href="javascript:;" id="showSelectListBtn"><span class="link-list-txt ms-yh"> 已选清单 <i class="arrow"></i> <em></em> <span></span> </i> </span></a>
+            <div class="list-info" id="selectedListInfo" style="display: none;">
+              <ul>
+                <li><span class=""></span><span class=""></span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- E 购物清单区域-->
+
+        <!-- S 购买按钮组-->
+          <!-- S 购买数量及库存 -->
+          <div class="ncs-buy">
+            <div class="ncs-point" style="display: none;"><i></i></div>
+            <!-- S 购买按钮 -->
+            <div class="ncs-btn" id="buyBtnGroup"> <!-- 立即购买--> <a href="javascript:void(0);" id="buyNowSubmitBtn" class="buynow" title="立即购买" >立即购买</a> <!-- 加入购物车--> <a href="javascript:void(0);" id="addCartBtn" class="addcart" title="加入购物车" ><i class="fa fa-shopping-basket" aria-hidden="true"></i>加入购物车 </a> </div>
+            <!-- E 购买按钮 -->
+            <!-- S 到货通知按钮 -->
+            <div class="ncs-btn" id="noticeBtnGroup" style="display: none;">
+              <!-- S 到货通知按钮 -->
+              <a href="javascript:;" id="arrivalNoticeBtn" title="到货通知" class="arrivebtn">到货通知</a>
+              <!-- E 到货通知按钮 -->
+            </div>
+            <!-- E 到货通知按钮 -->
+          </div>
+        <!-- S 购买按钮组--> </div>
+ </div>
+  <!-- 门店自提 Begin -->
+
+  <div class="ncs-chain-wrap" id="chainPanel" style="display: none">
+    <div class="chain-title">
+      <h1>线下门店在售</h1>
+      <i class="rule" id="btnChainRule"></i></div>
+    <div class="chain-wrap">
+      <div class="chain-thumb"><img id="chainImage" src="https://statics.cnrmall.com/public/img/default_store_avatar.png"></div>
+      <div class="chain-info">
+        <div class="chain-name"><span id="chainName"></span>
+          <p class="chain-rate" id="chainRate"></p>
+        </div>
+        <p class="chain-address" id="chainAddress">北京市大兴区西红门镇北兴路东段2号星光影视园新媒体大厦</p>
+        <a class="more" href="javascript:;" id="btnChainMore">更多门店 ></a> <a class="goto-chain" href="javascript:;" id="btnChainBuy">选择门店购买</a> </div>
+    </div>
+  </div>
+  <!-- End -->
+</div>
+      <!-- S 橱窗推荐-->
+      <div class="ncs-r-mod" id="showCasePanel" data-common-id="54801" data-store-id="262">
+        <div class="ncs-r-mod-tit">
+          <h4>橱窗推荐</h4>
+          <a href="javascript:;" id="showCaseRefreshBtn"><i class="icon fa fa-refresh"></i>换一批</a></div>
+        <div class="ncs-r-mod-con">
+          <ul class="ncs-recom-goods" id="showCaseGoodsList">
+            <li> <a href="javascript:;">
+              <div class="ncs-recom-goods-thumb"> <img src="" alt=""/> </div>
+              <dl>
+                <dt class="goods-name"></dt>
+                <dd class="goods-price"></dd>
+              </dl>
+              </a> </li>
+            <li> <a href="javascript:;">
+              <div class="ncs-recom-goods-thumb"><img src="" alt=""/></div>
+              <dl>
+                <dt class="goods-name"></dt>
+                <dd class="goods-price"></dd>
+              </dl>
+              </a> </li>
+            <li> <a href="javascript:;" >
+              <div class="ncs-recom-goods-thumb"><img src="" alt=""/></div>
+              <dl>
+                <dt class="goods-name"></dt>
+                <dd class="goods-price"></dd>
+              </dl>
+              </a> </li>
+          </ul>
+        </div>
+      </div>
+      <!--  E 橱窗推荐-->
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="ncs-goods-layout expanded"> <!-- 推荐组合 -->
+    <div class="ncs-promotion" id="nc-bundling" style="" data-common-id="54801"></div>
+    <div class="ncs-sidebar"> <div class="ncs-sidebar-container ncs-info" style="display: none">
+  <div class="title">
+    <h4>华信盛邦数码专营店</h4>
+  </div>
+  <div class="content p-b-10">
+    <div class="ncs-detail-rate">
+      <ul>
+        <li>
+          <h5>描述</h5>
+          <div title="持平--" class="equal">5.0<i></i></div>
+        </li>
+        <li>
+          <h5>服务</h5>
+          <div title="持平--" class="equal">5.0<i></i></div>
+        </li>
+        <li>
+          <h5>物流</h5>
+          <div title="持平--" class="equal">5.0<i></i></div>
+        </li>
+      </ul>
+    </div>
+    <div class="btns"> <a class="goto" href="/store/262">进店逛逛</a> <a href="javascript:;" nc_type="storeFavoritesBtn" data-param="{'storeId':'262'}"> <i class="icon fa fa-star-o"></i>收藏店铺<em class="m-l-5" nc_type="storeFavoritesNum">6</em> </a> </div>
+    <dl>
+      <dt>公司名称：</dt>
+      <dd></dd>
+    </dl>
+    <dl>
+      <dt>所在地区：</dt>
+      <dd></dd>
+    </dl>
+    <dl>
+      <dt>客服电话：</dt>
+      <dd></dd>
+    </dl>
+  </div>
+</div>
+
+      <!--<div class="service" id="servicePanel">
+  <div class="displayed"><i></i>在线客服</div>
+  <div class="sub" style="padding: 5px 9px;">
+    <div class="default">
+    <a href="javascript:;" class="chat_online" data-auto-nc-im data-im-common-id ="54801" data-im-seller-id="262" data-im-verify-online="true"></a>
+    </div>
+  </div>
+    <a id="openImWindow" href="javascript:;"></a>
+</div>
+-->
+<div class="ncs-sidebar-container ncs-class-bar" style="display: none;">
+  <div class="title">
+    <h4>店铺商品分类</h4>
+  </div>
+  <div class="content">
+    <ul class="ncs-submenu">
+      <li class="first"><a href="/store/search?storeId=262">查看全部商品</a></li>
+      <div class="sort"> <a href="/store/search?storeId=262&sort=default_desc">按新品</a><a href="/store/search?storeId=262&sort=price_desc">按价格</a><a href="/store/search?storeId=262&sort=sale_desc">按销量</a><a href="/store/search?storeId=262&sort=fav_desc">按收藏</a></div>
+    </ul>
+  </div>
+</div>
+<script type="text/javascript">
+// 商品分类
+function class_list(obj){
+    var stc_id=$(obj).attr('span_id');
+    var span_class=$(obj).attr('class');
+    if(span_class=='ico-block') {
+        $("#stc_"+stc_id).show();
+        $(obj).html('<em></em>');
+        $(obj).attr('class','ico-none');
+    }else{
+        $("#stc_"+stc_id).hide();
+        $(obj).html('<em></em>');
+        $(obj).attr('class','ico-block');
+    }
+}
+</script> 
+      <div class="ncs-sidebar-container ncs-top-bar">
+  <div class="title">
+    <h4>热销商品排行</h4>
+  </div>
+  <div class="content">
+    <div class="ncs-top-panel" id="hot_sales_list">
+      <ol>
+        <li title="Type-c数据线">
+          <dl>
+            <dt><a href="/goods/51075">Type-c数据线</a></dt>
+            <dd class="goods-pic"> <a href="/goods/51075"><img src="https://pic4.cnrmall.com/image/80/ce/80ce422818b9dcbc13f28d9e77c78dff.jpg@60w_60h" alt="" style="max-width:56px; max-height:56px"/></a> </dd>
+            <dd class="price"><em>
+                  <span class='yuan'>￥</span><span class='integer'>19</span><span class='pointer'>.</span><span class='decimal'>90</span>
+            </em></dd>
+            <dd class="selled">售出：69</dd>
+          </dl>
+        </li>
+        <li title="5V2A充电器（通用iPhone等机型）">
+          <dl>
+            <dt><a href="/goods/50985">5V2A充电器（通用iPhone等机型）</a></dt>
+            <dd class="goods-pic"> <a href="/goods/50985"><img src="https://pic4.cnrmall.com/image/28/b7/28b77f76c8703f1ebc07dda6d44adb5b.jpg@60w_60h" alt="" style="max-width:56px; max-height:56px"/></a> </dd>
+            <dd class="price"><em>
+                  <span class='yuan'>￥</span><span class='integer'>29</span><span class='pointer'>.</span><span class='decimal'>90</span>
+            </em></dd>
+            <dd class="selled">售出：26</dd>
+          </dl>
+        </li>
+        <li title="移动电源4000毫安 手机通用便携充电宝 苹果三星输出 小巧玲珑">
+          <dl>
+            <dt><a href="/goods/51067">移动电源4000毫安 手机通用便携充电宝 苹果三星输出 小巧玲珑</a></dt>
+            <dd class="goods-pic"> <a href="/goods/51067"><img src="https://pic1.cnrmall.com/image/ac/21/ac21111d7a8473443683c8ad5d865248.jpg@60w_60h" alt="" style="max-width:56px; max-height:56px"/></a> </dd>
+            <dd class="price"><em>
+                  <span class='yuan'>￥</span><span class='integer'>69</span><span class='pointer'>.</span><span class='decimal'>90</span>
+            </em></dd>
+            <dd class="selled">售出：23</dd>
+          </dl>
+        </li>
+        <li title="Viken（维肯）可充电便携式手持小风扇">
+          <dl>
+            <dt><a href="/goods/61624">Viken（维肯）可充电便携式手持小风扇</a></dt>
+            <dd class="goods-pic"> <a href="/goods/61624"><img src="https://pic2.cnrmall.com/image/58/a9/58a902c0bc2cbd6f44ee3a981c09b15a.jpg@60w_60h" alt="" style="max-width:56px; max-height:56px"/></a> </dd>
+            <dd class="price"><em>
+                  <span class='yuan'>￥</span><span class='integer'>39</span><span class='pointer'>.</span><span class='decimal'>00</span>
+            </em></dd>
+            <dd class="selled">售出：22</dd>
+          </dl>
+        </li>
+        <li title="viken（维肯）1.38米限量版萌狗狗幸运三合一数据线">
+          <dl>
+            <dt><a href="/goods/50226">viken（维肯）1.38米限量版萌狗狗幸运三合一数据线</a></dt>
+            <dd class="goods-pic"> <a href="/goods/50226"><img src="https://pic4.cnrmall.com/image/37/f7/37f787e6b599df8b299fe8df752abf66.jpg@60w_60h" alt="" style="max-width:56px; max-height:56px"/></a> </dd>
+            <dd class="price"><em>
+                  <span class='yuan'>￥</span><span class='integer'>39</span><span class='pointer'>.</span><span class='decimal'>90</span>
+            </em></dd>
+            <dd class="selled">售出：14</dd>
+          </dl>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+<div class="ncs-sidebar-container ncs-top-bar">
+  <div class="title">
+    <h4>热门收藏排行</h4>
+  </div>
+  <div class="content">
+    <div class="ncs-top-panel" id="hot_collect_list">
+      <ol>
+        <li title="移动电源4000毫安 手机通用便携充电宝 苹果三星输出 小巧玲珑">
+          <dl>
+            <dt><a href="/goods/51067">移动电源4000毫安 手机通用便携充电宝 苹果三星输出 小巧玲珑</a></dt>
+            <dd class="goods-pic"> <a href="/goods/51067"><img src="https://pic5.cnrmall.com/image/ac/21/ac21111d7a8473443683c8ad5d865248.jpg@60w_60h" alt="" style="max-width:56px; max-height:56px"/></span> </a> </dd>
+            <dd class="price"><em>
+                  <span class='yuan'>￥</span><span class='integer'>69</span><span class='pointer'>.</span><span class='decimal'>90</span>
+            </em></dd>
+            <dd class="collection">收藏：4</dd>
+          </dl>
+        </li>
+        <li title="Type-c数据线">
+          <dl>
+            <dt><a href="/goods/51075">Type-c数据线</a></dt>
+            <dd class="goods-pic"> <a href="/goods/51075"><img src="https://pic2.cnrmall.com/image/80/ce/80ce422818b9dcbc13f28d9e77c78dff.jpg@60w_60h" alt="" style="max-width:56px; max-height:56px"/></span> </a> </dd>
+            <dd class="price"><em>
+                  <span class='yuan'>￥</span><span class='integer'>19</span><span class='pointer'>.</span><span class='decimal'>90</span>
+            </em></dd>
+            <dd class="collection">收藏：3</dd>
+          </dl>
+        </li>
+        <li title="Viken（维肯）可充电便携式手持小风扇">
+          <dl>
+            <dt><a href="/goods/61624">Viken（维肯）可充电便携式手持小风扇</a></dt>
+            <dd class="goods-pic"> <a href="/goods/61624"><img src="https://pic1.cnrmall.com/image/58/a9/58a902c0bc2cbd6f44ee3a981c09b15a.jpg@60w_60h" alt="" style="max-width:56px; max-height:56px"/></span> </a> </dd>
+            <dd class="price"><em>
+                  <span class='yuan'>￥</span><span class='integer'>39</span><span class='pointer'>.</span><span class='decimal'>00</span>
+            </em></dd>
+            <dd class="collection">收藏：2</dd>
+          </dl>
+        </li>
+        <li title="Viken (维肯) J9 音乐蓝牙耳机">
+          <dl>
+            <dt><a href="/goods/61551">Viken (维肯) J9 音乐蓝牙耳机</a></dt>
+            <dd class="goods-pic"> <a href="/goods/61551"><img src="https://pic3.cnrmall.com/image/36/d1/36d11cbea91a090c3b0c3347370d9b6b.jpg@60w_60h" alt="" style="max-width:56px; max-height:56px"/></span> </a> </dd>
+            <dd class="price"><em>
+                  <span class='yuan'>￥</span><span class='integer'>59</span><span class='pointer'>.</span><span class='decimal'>00</span>
+            </em></dd>
+            <dd class="collection">收藏：2</dd>
+          </dl>
+        </li>
+        <li title="Viken（维肯）V50 移动电源 智能双向无线充">
+          <dl>
+            <dt><a href="/goods/61192">Viken（维肯）V50 移动电源 智能双向无线充</a></dt>
+            <dd class="goods-pic"> <a href="/goods/61192"><img src="https://pic1.cnrmall.com/image/06/cd/06cdea8a93894b590094c491db2556db.jpg@60w_60h" alt="" style="max-width:56px; max-height:56px"/></span> </a> </dd>
+            <dd class="price"><em>
+                  <span class='yuan'>￥</span><span class='integer'>99</span><span class='pointer'>.</span><span class='decimal'>00</span>
+            </em></dd>
+            <dd class="collection">收藏：1</dd>
+          </dl>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+ </div>
+    <div class="ncs-goods-main" id="main-nav-holder">
+      <div id="main-nav" class="ncs-goods-tabbar">
+        <div class="ncs-tabbar-store ncs-info">
+          <div class="title">
+            <h4>华信盛邦数码专营店</h4>
+          </div>
+          <div class="content">
+            <div class="ncs-detail-rate">
+              <ul>
+                <li>
+                  <h5>描述</h5>
+                  <div title="持平--" class="equal">5.0<i></i></div>
+                </li>
+                <li>
+                  <h5>服务</h5>
+                  <div title="持平--" class="equal">5.0<i></i></div>
+                </li>
+                <li>
+                  <h5>物流</h5>
+                  <div title="持平--" class="equal">5.0<i></i></div>
+                </li>
+              </ul>
+            </div>
+            <div class="btns"> <a class="goto" href="/store/262">进店逛逛</a> <a href="javascript:;" nc_type="storeFavoritesBtn" data-param="{'storeId':'262'}"><i class="fa fa-star-o" aria-hidden="true"></i>收藏店铺<em class="m-l-5" nc_type="storeFavoritesNum">6</em> </a> </div>
+          </div>
+        </div>
+        <div class="ncs-goods-con-nav">
+          <ul id="categoryMenu">
+            <li class="current"><a data-id="ncGoodsIntro" href="#content">商品详情</a></li>
+            <li><a data-id="ncGoodsContract" href="#content">售后保障</a></li>
+            <li><a data-id="ncGoodsRate" href="#content">商品评价<em>0</em></a></li>
+            <li><a data-id="ncGoodsConsult" href="#content">购买咨询</a></li>
+            <li><a data-id="ncGoodsTrysReport" href="#content" style="display: none">试用评价</a></li>
+          </ul>
+        </div>
+        <!--S 图钉上的已选清单-->
+        <div class="ncs-tabbar-buy up"> 
+          <a id="tabAddCart" href="javascript:;" class="sub-btn">已选<span class="num">0</span><span class="unit">
+            <!--by[szq] 修改商品单位显示 -->
+              件
+            <!--by[szq] 修改商品单位显示 -->
+          </span><span class="split">/</span>
+            <span class="price"><span class='yuan'>￥</span><span class='integer'>0</span><span class='pointer'>.</span><span class='decimal'>00</span></span>
+          <i class="arrow"></i>
+        </a>
+          <div id="pinModal" class="ncs-pin-modal"></div>
+           </div>
+        <!--S 图钉上的已选清单--> </div>
+      <div class="ncs-intro">
+        <div class="content bd" id="ncGoodsIntro">
+          <ul class="ncs-goods-sort">
+            <li>价格：91-130</li>
+            <li>分类：充电宝</li>
+          </ul>
+          <div class="ncs-goods-info-content">
+            <p>
+  <img src="https://pic.cnrmall.com/image/e5/b8/e5b8a8bcba5738f2998720a0c41b3312.jpg" /></p>
+<p>
+  <img src="https://pic.cnrmall.com/image/06/b2/06b23e10a6ccda2b72cdb844687953e1.jpg" /></p>
+<p>
+  <img src="https://pic.cnrmall.com/image/ef/99/ef99636f95af15d26f99c78a443ea43b.jpg" /></p>
+<p>
+  <img src="https://pic.cnrmall.com/image/aa/d3/aad354bbcd7b95efaf3444286b2b7f8b.jpg" /></p>
+<p>
+  <img src="https://pic.cnrmall.com/image/b6/11/b611a4afbc86dd09ff7223aea7b2c45c.jpg" /></p>
+<p>
+  <img src="https://pic.cnrmall.com/image/5c/45/5c4551b54e0a88f302a6a51a30147e7d.jpg" /></p>
+<p>
+  <img src="https://pic.cnrmall.com/image/4a/26/4a2640224619631f463dfdd0966f202e.jpg" /></p>
+<p>
+  <img src="https://pic.cnrmall.com/image/04/fe/04fef88b7c05f1aae11f16cede03eb5c.jpg" /></p>
+<p>
+  <img src="https://pic.cnrmall.com/image/c1/fe/c1fe8b8cd29bddecba202bc82c480d26.jpg" /></p>
+<p>
+  <img src="https://pic.cnrmall.com/image/85/59/85594f12572242c5d630723f1e02ab06.jpg" /></p>
+<p>
+  <img src="https://pic.cnrmall.com/image/c2/23/c223c96acc9007e2caabb9828d0ca9d2.jpg" /></p></div>
+           </div>
+      </div>
+      <!-- 售后保障 -->
+      <div class="ncs-consult">
+        <div class="ncs-goods-title-bar hd">
+          <h4><a href="javascript:void(0);">售后保障</a></h4>
+        </div>
+        <div class="ncs-serve-agree-content bd" id="ncGoodsContract" style="padding-top: 9px;">
+              <!-- 第三方售后保障 开始-->
+              <div class="ui-box">
+                <div class="serve-agree-bd">
+                  <dl>
+                    <dt><i class="sever-yg"></i><strong>厂家服务</strong></dt>
+                    <dd>平台卖家提供发票和相应的售后服务。请您放心购买！</dd>
+                    <dt><i class="goods"></i><strong>央广承诺</strong></dt>
+                    <dd>央广商城向您保证所售商品均为正品行货。</dd>
+                    <dt><i class="unprofor"></i><strong>全国联保</strong></dt>
+                    <dd>凭质保证书及央广商城发票，可享受全国联保服务（奢侈品、钟表除外；奢侈品、钟表由央广联系保修，享受法定三包售后服务），与您亲临商场选购的商品享受相同的质量保证。央广商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！<br /><br />注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！建议购买前先联系销售商咨询！ </dd>
+                    <dt><i class="no-worries"></i><strong>无忧退换货</strong></dt>
+                    <dd>客户购买央广商城商品7日内（含7日，自客户收到商品之日起计算），在保证商品完好的前提下，可无理由退货。（部分商品除外，详情请见各商品细则）</dd>
+                  </dl>
+                </div>
+              </div>
+              <!-- 第三方售后保障 结束-->
+            <p><span style="color: rgb(255, 0, 0);"><strong>权利声明：</strong></span><br/>商城上的所有商品信息、客户评价、商品咨询、网友讨论等内容，是商城重要的经营资源，未经许可，禁止非法转载使用。</p><p><span style="color: rgb(63, 63, 63);"><strong>注：</strong></span>本站商品信息均来自于合作方，其真实性、准确性和合法性由信息拥有者（合作方）负责。本站不提供任何保证，并不承担任何法律责任。</p><p><br/><span style="color: rgb(255, 0, 0);"><strong>价格说明：</strong></span><br/></p><p><span style="color: rgb(63, 63, 63);"><strong>价格：</strong></span>价格为商品的销售价，是您最终决定是否购买商品的依据。</p><p><span style="color: rgb(63, 63, 63);"><strong>划线价：</strong></span>商品展示的划横线价格为参考价，该价格可能是品牌专柜标价、商品吊牌价或由品牌供应商提供的正品零售价（如厂商指导价、建议零售价等）或该商品在商城平台上曾经展示过的销售价；由于地区、时间的差异性和市场行情波动，品牌专柜标价、商品吊牌价等可能会与您购物时展示的不一致，该价格仅供您参考。</p><p><span style="color: rgb(63, 63, 63);"><strong>折扣：</strong></span>如无特殊说明，折扣指销售商在原价、或划线价（如品牌专柜标价、商品吊牌价、厂商指导价、厂商建议零售价）等某一价格基础上计算出的优惠比例或优惠金额；如有疑问，您可在购买前联系销售商进行咨询。</p><p><span style="color: rgb(63, 63, 63);"><strong>异常问题：</strong></span>商品促销信息以商品详情页“促销”栏中的信息为准；商品的具体售价以订单结算页价格为准；如您发现活动商品售价或促销信息有异常，建议购买前先联系销售商咨询。</p><p><br/></p>
+
+        </div>
+        
+      </div>
+      <!-- 售后保障 -->
+
+      <!-- 实体店信息 -->
+      <!-- / 实体店信息 -->
+      <!-- 评价开始 --> 
+      <div class="ncs-comment">
+        <div class="ncs-goods-title-bar hd">
+          <h4><a href="javascript:void(0);">商品评价</a></h4>
+        </div>
+        <div class="ncs-goods-info-content bd" id="ncGoodsRate">
+          <div class="top">
+            <div class="rate">
+              <p><strong>100</strong><sub>%</sub>好评</p>
+              <span>共有0人参与评分</span></div>
+            <div class="percent">
+              <dl>
+                <dt>好评<em>(100%)</em></dt>
+                <dd><i style="width: 100%"></i></dd>
+              </dl>
+              <dl>
+                <dt>中评<em>(0%)</em></dt>
+                <dd><i style="width: 0%"></i></dd>
+              </dl>
+              <dl>
+                <dt>差评<em>(0%)</em></dt>
+                <dd><i style="width: 0%"></i></dd>
+              </dl>
+            </div>
+            <div class="btns" style="display:none"><span>您可对已购商品进行评价</span>
+              <p><a href="javascript:;" class="btn btn-sm btn-danger" target="_blank"><i class="fa fa-comment-o"></i>评价商品</a></p>
+            </div>
+          </div>
+          <div class="ncs-goods-title-nav">
+            <ul id="comment_tab">
+              <li data-type="all" class="current" onclick="queryEvaluate('all')"><a href="javascript:void(0);">商品评价(0)</a></li>
+              <li data-type="1"><a href="javascript:void(0);" onclick="queryEvaluate('1')">好评(0)</a></li>
+              <li data-type="2"><a href="javascript:void(0);" onclick="queryEvaluate('2')">中评(0)</a></li>
+              <li data-type="3"><a href="javascript:void(0);" onclick="queryEvaluate('3')">差评(0)</a></li>
+              <li data-type="4"><a href="javascript:void(0);" onclick="queryEvaluate('4')">有图(0)</a></li>
+            </ul>
+          </div>
+          <!-- 商品评价内容部分 -->
+          <div id="goodseval" class="ncs-commend-main"> </div>
+        </div>
+      </div>
+      <!-- 评价结束 -->
+      <!-- 咨询开始 -->
+      <div class="ncs-consult">
+        <div class="ncs-goods-title-bar hd">
+          <h4><a href="javascript:void(0);">购买咨询</a></h4>
+        </div>
+        <div class="ncs-goods-info-content bd" id="ncGoodsConsult"> <!-- 咨询留言内容部分 -->
+          <div id="consulting_demo" class="ncs-loading"> </div>
+        </div>
+      </div>
+      <!-- 咨询结束 -->
+      <!-- 试用评价开始 -->
+      <div class="ncs-consult" id="trysReport" style="display: none">
+        <div class="ncs-goods-title-bar hd">
+          <h4><a href="javascript:void(0);">试用评价</a></h4>
+        </div>
+        <div class="ncs-goods-info-content bd" > <!-- 试用评价容部分 -->
+          <div class="ncs-loading"> </div>
+          <div class="ncs-report-main" id="ncGoodsTrysReport"></div>
+        </div>
+      </div>
+      <!-- 试用评价结束 -->
+    </div>
+  </div>
+
+    <!-- 最近浏览和猜你喜欢 -->
+    <div id="browse_like_div" class="nc-goods-borowse"></div>
+
+
+  <form id="buynow_form" method="post" action="/buy">
+    <input id="buyData" name="buyData" type="hidden"/>
+  </form>
+  <script>
+    //是否展示右侧工具条中的优惠券活动模块
+    ncGlobal.showToolBarCouponActivity = true;
+    ncGlobal.commonId = 54801;
+    ncGlobal.goodsId = 0
+    ncGlobal.goodsStorage = 1;
+    ncGlobal.goodsStatus = 1;
+    ncGlobal.wapRoot = "https://m1.cnrmall.com/";
+    ncGlobal.goodsUrl = "/goods/54801";
+    ncGlobal.goodsWapUrl = "https://m1.cnrmall.com/tmpl/product_detail.html?commonId=54801";
+    ncGlobal.storeId = "262";
+    ncGlobal.arrivalNoticeMaxTime = 30;
+    ncGlobal.chainDescription = "";
+    //是否有满优惠活动
+    ncGlobal.hasConformList = 0;
+
+    <!-- 其他模式-->
+    ncGlobal.goodsInfoType = "retail";
+    ncGlobal.goodsSpecValues = $.parseJSON ('[{"goodsId":19622,"specValueIds":"1"},{"goodsId":19623,"specValueIds":"2"}]');
+  </script> 
+  <script src="https://statics.cnrmall.com/public/toolkit/ajax-content/jquery.ajaxContent.pack.js"></script>
+  <link href="https://statics.cnrmall.com/public/toolkit/bxslider/jquery.bxslider.css" rel="stylesheet" />
+  <script src="https://statics.cnrmall.com/public/toolkit/bxslider/jquery.bxslider.js"></script> 
+  <script src="https://statics.cnrmall.com/web/static/js/goods/goods.js"></script> 
+  <script src="https://statics.cnrmall.com/public/toolkit/jquery.raty/jquery.raty.js"></script> 
+<!-- 
+	<div id="cti">
+		<div class="wrapper">
+			<ul>
+					<li><span class="line"></span> <span class="icon"> <img src="https://statics.cnrmall.com/public/img/cti/7day.png@60w_60h"> </span> <span class="name">
+      	七天保障
+      	</span> </li>
+					<li><span class="line"></span> <span class="icon"> <img src="https://statics.cnrmall.com/public/img/cti/jswl.png@60w_60h"> </span> <span class="name">
+      	极速物流
+      	</span> </li>
+					<li><span class="line"></span> <span class="icon"> <img src="https://statics.cnrmall.com/public/img/cti/psbf.png@60w_60h"> </span> <span class="name">
+      	破损补寄
+      	</span> </li>
+					<li><span class="line"></span> <span class="icon"> <img src="https://statics.cnrmall.com/public/img/cti/pz.png@60w_60h"> </span> <span class="name">
+      	品质承诺
+      	</span> </li>
+			</ul>
+		</div>
+	</div>
+ -->
+<div class="ccti">
+  <div class="wrapper">
+    <div class="ccti-footer">
+      <i class="cti01"></i>
+      <i class="cti02"></i>
+      <i class="cti03"></i>
+      <i class="cti04"></i>
+    </div>
+  </div>
+</div>
+<div id="faq">
+	<div class="wrapper">
+		<div class="notice">
+			<div class="title">
+				<h2>公告</h2>
+			</div>
+			<div class="content-news">
+				<ul>
+							<li><a target="_blank" href="/article/info/24883481">【公告】关于春节期间物流配送事宜</a></li>
+							<li><a target="_blank" href="/article/info/24287381">【公告】 央广购物推“超级服务中心”五大服务全新升级</a></li>
+							<li><a target="_blank" href="/article/info/22415056">【公告】有关对购买资中塔罗科血橙商品的用户赠送歉意礼金券事宜</a></li>
+							<li><a target="_blank" href="/article/info/21024475">【公告】书籍开启梦想  爱心孕育希望</a></li>
+				</ul>
+			</div>
+		</div>
+		<ul class="link">
+					<li>
+						<dl class="s1">
+							<dt> 购物指南 </dt>
+								<dd><a target="_blank" href="/article/info/53857" title="免费注册">免费注册</a></dd>
+								<dd><a target="_blank" href="/article/info/53548" title="购物流程">购物流程</a></dd>
+								<dd><a target="_blank" href="/article/info/53545" title="用户注册协议">用户注册协议</a></dd>
+								<dd><a target="_blank" href="/article/info/9" title="电子发票（自营商品）">电子发票（自营商品）</a></dd>
+			</dl>
+			</li>
+					<li>
+						<dl class="s1">
+							<dt> 商家服务 </dt>
+								<dd><a target="_blank" href="/article/info/24883479" title="店铺命名标准">店铺命名标准</a></dd>
+								<dd><a target="_blank" href="/article/info/83183" title="平台总则">平台总则</a></dd>
+								<dd><a target="_blank" href="https://sellers.cnrmall.com/" title="商家中心">商家中心</a></dd>
+			</dl>
+			</li>
+					<li>
+						<dl class="s1">
+							<dt> 支付配送 </dt>
+								<dd><a target="_blank" href="/article/info/38" title="支付方式">支付方式</a></dd>
+								<dd><a target="_blank" href="/article/info/37" title="配送范围">配送范围</a></dd>
+								<dd><a target="_blank" href="/article/info/36" title="配送时间">配送时间</a></dd>
+			</dl>
+			</li>
+					<li>
+						<dl class="s1">
+							<dt> 会员中心 </dt>
+								<dd><a target="_blank" href="/article/info/26" title="找回密码">找回密码</a></dd>
+			</dl>
+			</li>
+					<li>
+						<dl class="s1">
+							<dt> 售后服务 </dt>
+								<dd><a target="_blank" href="http://www.njc.com.cn" title="国家首饰质量监督检验中心鉴定证书查询">国家首饰质量监督检验中心鉴定证书查询</a></dd>
+								<dd><a target="_blank" href="/article/info/24287529" title="超级服务中心">超级服务中心</a></dd>
+								<dd><a target="_blank" href="/article/info/166062" title="售后服务政策">售后服务政策</a></dd>
+								<dd><a target="_blank" href="/article/info/166043" title="无忧购物">无忧购物</a></dd>
+			</dl>
+			</li>
+		</ul>
+	</div>
+</div>
+<div id="footer">
+  <div class="wrapper">
+    <p><a href="/">首页</a>
+      | <a target="_blank" href="https://www.cnrmall.com/article/list/199093" target="_blank">招商合作</a>       | <a target="_blank" href="https://www.cnrmall.com/article/info/22" target="_blank">关于央广购物</a>       | <a target="_blank" href="https://www.cnrmall.com/article/info/175304" target="_blank">联系我们</a>       | <a target="_blank" href="http://scm.cnrmall.com/veninfo/venlogin/index.jsp" target="_blank">成为供应商</a> 
+ </p>
+
+<p><a href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11011502003547">京公网安备：11011502003547</a>&nbsp;&nbsp;<a target="_blank" href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action">京ICP备19000295号</a>&nbsp;&nbsp;<a target="_blank" href="javascript:;">食品流通许可证编号：SP1101151210063489</a>&nbsp;&nbsp;
+  <a target="_blank" href="javascript:;">信息网络传播视听节目许可证 0102002号</a>&nbsp;&nbsp;<a target="_blank" href="https://cnr-xiaopin.oss-cn-beijing.aliyuncs.com/certificate/%E5%89%AF%E6%9C%AC.jpg">营业执照</a></p>
+<p>央广小品科技(北京)有限公司</p>
+<p>Copyright<em style="font-family:Arial,Verdana; margin:0 4px">©</em>2010-2019 cnrmall.com All Rights Reserved&nbsp;&nbsp;&nbsp;&nbsp;服务热线：4008-518-518</p>
+<!--Copyright © 2018 央广小品,All rights reserved.&nbsp;&nbsp;&nbsp;&nbsp;京ICP备10038858号 京公网安备：11011502002190 服务热线：4008-518-518<br />-->
+<!--Powered by <span style="font-weight: 600;"><font style="color:orange;">Cnrmall.com</font><font style="color:blue;"></font></span><br />-->
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260731735'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1260731735' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?905123a113c36971dd79389429636f4c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<ul class="footer-img">
+  <li><a class="img01" href="javascript:;"></a></li>
+  <li><script src="https://kxlogo.knet.cn/seallogo.dll?sn=e16110811011565130ecka000000&size=0"></script></li>
+  <li><a id='___szfw_logo___' href='https://credit.szfw.org/CX63030000051620161107.html' target='_blank'><img src='http://icon.szfw.org/cert.png' border='0' /></a></li>
+  <li><a class="img05" href="http://www.bj.cyberpolice.cn/index.do" target="_blank"></a></li>
+</ul>
+</div>
+</div>
+<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
+</body>
+</html>
+<!-- S 成功添加购物车窗口-->
+<div class="ncs-cart-popup" id="addCartPrompt" style="display: none;">
+  <dl>
+    <dt>成功添加到购物车</dt>
+    <dd class="special">购物车共有 <strong id="bold_num">0</strong> 种商品 <!-- 总金额为：<em class="saleP" id="bold_mly">¥0.00</em> --></dd>
+    <dd class="btns"> <a onclick="location.href='/cart/list'" class="btn btn-sm btn-info" href="javascript:void(0);">查看购物车</a> <a onclick="layer.closeAll();" value="" class="btn-warning btn btn-sm" href="javascript:void(0);">继续购物</a> </dd>
+  </dl>
+</div>
+<!-- E 成功添加购物车窗口-->
+<!-- S 满优惠-->
+<div class="conform-more" id="conform-more" style="display:none">
+  <ul class="concessions">
+  </ul>
+</div>
+<!-- E 满优惠-->
+
+<!-- B 搭配套餐 --> 
+<script type="text/html" id="collocationLayer">
+    <div class="collocation-body">
+        <div class="scroll">
+            <% var price = 0 %>
+        <% goodsCommonList.forEach(function(goodsCommon){ %>
+            <% price += (Nc.isEmpty(bundlingGoodsList[goodsCommon.goodsList[0].goodsId]) ? goodsCommon.goodsList[0].webPrice0 : bundlingGoodsList[goodsCommon.goodsList[0].goodsId].goodsPrice) %>
+        <div class="coll-items" data-goods-id="<%= goodsCommon.goodsList[0].goodsId %>" data-common-id="<%= goodsCommon.commonId %>">
+          <div class="coll-goods">
+            <div class="goods-img">
+              <a href="javascript:;" title="" alt="">
+                <img data-goods-image src="<%= ncImage(goodsCommon.imageSrc, 160, 160) %>">
+              </a>
+            </div>
+            <div class="meta-props">
+              <span class="meta-prop">原价:</span>
+              <em class="price-line" data-goods-price><%= Nc.priceFormatNew(goodsCommon.goodsList[0].webPrice0) %></em>
+            </div>
+            <div class="meta-props">
+              <span class="meta-prop">套餐价:</span>
+              <span class="coll-price"><em data-bundling-price="<%= Nc.isEmpty(bundlingGoodsList[goodsCommon.goodsList[0].goodsId]) ? goodsCommon.goodsList[0].webPrice0 : bundlingGoodsList[goodsCommon.goodsList[0].goodsId].goodsPrice %>"><%= Nc.priceFormatNew(Nc.isEmpty(bundlingGoodsList[goodsCommon.goodsList[0].goodsId]) ? goodsCommon.goodsList[0].webPrice0 : bundlingGoodsList[goodsCommon.goodsList[0].goodsId].goodsPrice) %></em></span>
+            </div>
+          </div>
+          <div class="goods-meta">
+              <% if (!Nc.isEmpty(goodsCommon.specJson) ) { %>
+              <% goodsCommon.specJson.forEach(function(spec){ %>
+            <div class="meta-prop">
+              <span class="meta-prop"><%= spec.specName %>:</span>
+                <ul>
+                <% var i = 0;%>
+                <% spec.specValueList.forEach(function(specValue){ %>
+                  <% if (spec.specId == 1) { %>
+                  <li class="sp-img"> <a href="javascript:void(0)" data-spec-value-id="<%= specValue.specValueId %>" <% if (i == 0) { %>class="hovered"<% } %>> <img src="<%= ncImage(goodsCommon.imageList[specValue.specValueId], 160, 160) %>" title="<%= specValue.specValueName %>"/><sub></sub></a> </li>
+                  <% } else { %>
+                  <li> <a href="javascript:void(0)" data-spec-value-id="<%= specValue.specValueId %>" <% if (i == 0) { %>class="hovered"<% } %>><%= specValue.specValueName %><sub></sub></a> </li>
+                  <% } %>
+                  <% i++; %>
+                <% }); %>
+                </ul>
+            </div>
+                <% }); %>
+              <%}%>
+            <div class="meta-prop">
+              <span class="meta-prop">库存:</span>
+              <em data-goods-storage><%= goodsCommon.goodsList[0].goodsStorage %></em>&nbsp;
+              <!--by[szq] 修改商品单位显示 -->
+              <% if(goodsCommon.unitName != 'aaa') {%>
+              <%= goodsCommon.unitName%>
+              <% } %>
+              <!--by[szq] 修改商品单位显示 -->
+            </div>
+          </div>
+          <% if (goodsCommon.goodsState != 1 || goodsCommon.goodsVerify != 1) { %>
+          <div class="coll-down">
+            <span>该商品已下架</span>
+          </div>
+            <% } %>
+        </div>
+            <% });%>
+      </div>
+    </div>
+    <div class="collocation-bottom">
+      <div class="goods-text">
+        <p>套餐数量：<span class="amount"><span class="minus crisis" id="bundlingBuyNumMinus" title="减少"> <i class="fa fa-minus" aria-hidden="true"></i></span><input type="text" class="input-text" data-bundling-buy-num value="1" autocomplete="off"><span class="plus" title="增加" id="bundlingBuyNumPlus"> <i class="fa fa-plus" aria-hidden="true"></i></span></span><span class="m-l-15">套&nbsp;餐&nbsp;价：<span class="coll-price" data-bundling-price-sum><%= Nc.priceFormatNew(price) %></span></span></p>
+      </div>
+    </div>
+</script> 
+<!-- E 搭配套餐 -->
+
+<!-- S 到货通知 -->
+<div id="arrivalNoticeTpl" style="display:none;">
+  <form id="arrivalNoticeForm">
+    <div class="block-note"><i class="fa fa-lightbulb-o"></i>若商品在30日内到货，我们会通过邮件、短信和手机客户端来通知您哦~</div>
+    <dl>
+      <dt class="arriva">手机号码：</dt>
+      <dd class="arrivas p-l-10">
+        <input type="text" class="text w200" maxLength="11" name="mobile" id="arrivalNoticeMobile" value="" />
+      </dd>
+    </dl>
+    <dl>
+      <dt class="arriva">邮箱地址：</dt>
+      <dd class="arrivas">
+        <input type="text" class="text w200" name="email" id="arrivalNoticeEmail" value="" />
+      </dd>
+    </dl>
+  </form>
+</div>
+<!-- E 到货通知 -->
+
+
+<!-- S 推荐组合 -->
+<div id="modifyModel" style="display: none">
+  <div class="combo-spu">
+    <div class="goods-pic"><img id="comboGoodsImage" src=""></div>
+    <div class="goods-info"><h4 id="comboGoodsName"></h4><h5 id="comboJingle"></h5><span class="price" id="comboGoodsPrice"></span></div>
+  </div>
+  <div class="combo-sku-list">
+    <div class="modal-sku">
+      <div class="ncs-retail-modal" >
+        <div id="comboSpecPanel"></div>
+        <!-- S 商品列表区域-->
+        <div class="combo-item m-b-10">
+          <span class="ncs-number">数量</span>
+          <div class="combo-spec">
+            <div class="amount" id="comboAmount">
+              <span href="javascript:;" id="comboAmountMinus" class="minus crisis" title="减少"><i class="fa fa-minus" aria-hidden="true"></i></span>
+              <input type="text" class="input-text" value="1" id="comboAmountInput" autocomplete="off">
+              <span href="javascript:;" id="comboAmountPlus" class="plus" title="增加"><i class="fa fa-plus" aria-hidden="true"></i></span><span class="m-l-5 danwei">只</span>
+            </div>
+            <div id="comboStock" class="m-l-10 fl">（库存<span id="comboStockSpan"></span><span class="danwei">只</span>）</div><div class="m-l-10 fl" id="comboStockLimit" style="display: none">限购<span id="comboStockLimitSpan"></span><span class="danwei">只</span></div>
+            <div class="stock" id="comboNoStock" style="display: none">库存不足</div>
+          </div>
+        </div>
+</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

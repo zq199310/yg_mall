@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="央广小品 - 央广购物，电视购物，央广，网上购物，视频购物，视频直播，TV购物，QVC，美国QVC" />
+    <meta name="description"
+        content="央广小品 - （cnrmall.com）-是由中央人民广播电台和美国QVC联合打造的居家购物公司，获国家广电总局批准的电视购物频道，24小时客服热线:4008-518-518" />
+    <title>央广购物</title>
+    <link rel="stylesheet" href="css/fundam.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <div class="header-wrap">
+        <header class="public-head-layout wrapper">
+            <h1 class="site-logo"><a href="/"><img
+                        src="https://pic4.cnrmall.com/image/2c/6c/2c6ce4ec89967ee42ef77fb0b524fc0c.png"
+                        alt="" /></a><span>欢迎登录</span></h1>
+
+        </header>
+    </div>
+    <div class="tips-wrapper">
+        <div class="tips-inner">
+            <div class="cont-wrapper"><i class="icon-tips"></i>
+                <p>为确保您账户的安全及正常使用，依《网络安全法》相关要求，会员账户需绑定手机。如您还未绑定，请尽快完成，感谢您的理解及支持！</p>
+            </div>
+        </div>
+    </div>
+    <div class="nc-login-layout">
+        <div class="wrapper">
+            <div class="nc-login">
+                <div id="loginModule" class="nc-login-mode">
+                    <ul class="login-tabs-nav">
+                        <li><a href="#commonModule" class="tabulous_active">用户登录</a></li>
+                        <li><a href="#mobileModule">手机动态码登录</a></li>
+                        <span class="tabulousclear"></span>
+                    </ul>
+                    <div id="tabs_container" class="login-tabs-container">
+                        <div id="commonModule" class="tabs-content">
+                            <form id="loginForm" class="login-form" name="loginForm" method="post">
+                                <div class="item item-fore1">
+                                    <label for="loginName" class="login-label name-label" title="登录账号"></label>
+                                    <input type="text" class="itxt" id="loginName" name="loginName" autocomplete="off"
+                                        placeholder="手机号/会员名/邮箱">
+                                </div>
+                                <div class="item item-fore2">
+                                    <label for="memberPwd" class="login-label pwd-label" title="登录密码"></label>
+                                    <input type="password" class="itxt" id="memberPwd" name="memberPwd"
+                                        placeholder="输入账户密码" autocomplete="off" />
+                                </div>
+
+
+                                <!-- <div class="item item-fore2">
+                                <label for="captcha" class="login-label vcode-label" title="验证码"></label>
+                                <input id="captcha" class="itxt itxt02" type="text" name="captcha" maxlength="4" placeholder="输入验证码" autocomplete="off"/>
+                                <div class="verify-code"><img id="codeimage" src="/captcha/getcaptcha" class="codeimg" style="height: 38px;" alt=""/><a href="JavaScript:void(0);" nc_type="changeCaptcha" onclick="javascript:document.getElementById('codeimage').src='/captcha/getcaptcha?t='+Math.random()" class="code-pic">看不清<br/>
+                                  换一张</a></div>
+                              </div> -->
+                                <div class="item item-fore4">
+                                    <div class="safe"> <span class="auto">
+                                            <input type="checkbox" value="1" class="checkbox" id="autoLogin"
+                                                name="autoLogin">
+                                            七天自动登录<em
+                                                style="display: none;margin-left: 5px;color: #ff3238;">请勿在公用电脑上使用</em>
+                                        </span><span class="forget-pw-safe"><a href="/findpwd" class>忘记密码</a></span>
+                                    </div>
+                                </div>
+                                <!-- <div class="item item-fore5">
+                                <div class="login-btn">
+                                  <button class="btn-img" id="loginSubmit">登&nbsp;&nbsp;&nbsp;&nbsp;录</button>
+                                </div>
+                              </div> -->
+
+                                <div class="item">
+                                    <div id="pwd-login" class="slide-imgver-btn ">
+                                        <i></i> <span> 登录</span>
+                                    </div>
+                                    <!-- <div  class="errors "><i class="fa fa-exclamation-circle"></i><span>点击按钮进行验证</span></div> -->
+                                </div>
+                            </form>
+                        </div>
+                        <div id="mobileModule" class="tabs-content" style="display: none;">
+                            <form id="mobileForm" class="login-form" name="mobileForm" method="post">
+                                <div id="phoneItemError" class="item item-fore1">
+                                    <label for="mobile" class="login-label mobile-label" title="手机号"></label>
+                                    <input type="text" class="itxt" id="mobile" name="mobile"
+                                        placeholder="可填写已注册的手机号接收短信" autocomplete="off" />
+
+                                    <div id="phone-error-forSlide" class="errors "><i
+                                            class="fa fa-exclamation-circle"></i><span>请输入正确的手机号</span></div>
+
+                                </div>
+                                <div class="phone-login-yzm errors">验证码已发送，请将“6位短信动态码”输入到下方。</div>
+
+                                <div class="item" style="margin-bottom:0;height:66px;">
+                                    <div id="phone-login" class="slide-imgver-btn ">
+                                        <i></i> <span> 点击发送验证码</span>
+                                    </div>
+                                    <div id="count-down" class="phone-login-yzm errors "><span>您可以在<span
+                                                class="count-down-time">60</span>秒后再次获取验证码</span></div>
+                                </div>
+                                <!-- <div class="item item-fore2">
+                                <label for="captchaMobile" class="login-label vcode-label" title="验证码"></label>
+                                <input id="captchaMobile" class="itxt itxt02" type="text" name="captcha" maxlength="4" placeholder="输入验证码" autocomplete="off"/>
+                                <div class="verify-code"><img id="codeimageMobile" src="" class="codeimg" style="height: 38px;" alt=""/><a href="JavaScript:void(0);" nc_type="changeCaptcha" onclick="javascript:document.getElementById('codeimageMobile').src='/captcha/getcaptcha?t='+Math.random()" class="code-pic">看不清<br/>
+                                  换一张</a></div>
+                              </div>
+                              <div class="tiptext">正确输入上方验证码后，点击<a href="###" id="sendSmsCode"><i class="fa fa-mobile"></i>发送短信动态码</a>，查收短信将系统发送的“6位短信动态码”输入到下方。 </div> -->
+                                <div class="item item-fore2">
+                                    <label class="login-label mcode-label" title="短信动态码"></label>
+                                    <input type="text" readonly class="itxt" id="authCode" name="authCode" maxlength="6"
+                                        placeholder="输入6位短信动态码" autocomplete="off">
+                                </div>
+                                <div class="item item-fore5">
+                                    <div class="login-btn lock-click">
+                                        <button id="mobileSubmit" class="btn-img">登录</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="coagent" id="demo-form-site">
+                    <ul>
+                        <li><a href="javascript:void(0);" title="微信账号登录" class="pdl" id="weixinLogin"><b
+                                    class="weixin-icon"></b><span>微信</span></a><span class="line">|</span></li>
+                        <li class="extra-r">
+                            <div class="regist-link"><a title="" href="/register" target="_blank"><b></b>立即注册</a></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="login-banner" style="background-color:#e93854">
+            <div class="wrapper">
+                <div id="banner-bg" class="i-inner"
+                    style="background: url(https://statics.cnrmall.com/public/img/login_img.jpg) no-repeat 0 0;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="wrapper">
+            <p><a href="/">首页</a>
+                | <a target="_blank" href="https://www.cnrmall.com/article/list/199093" target="_blank">招商合作</a> | <a
+                    target="_blank" href="https://www.cnrmall.com/article/info/22" target="_blank">关于央广购物</a> | <a
+                    target="_blank" href="https://www.cnrmall.com/article/info/175304" target="_blank">联系我们</a> | <a
+                    target="_blank" href="http://scm.cnrmall.com/veninfo/venlogin/index.jsp" target="_blank">成为供应商</a>
+            </p>
+
+            <p><a
+                    href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11011502003547">京公网安备：11011502003547</a>&nbsp;&nbsp;<a
+                    target="_blank"
+                    href="http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action">京ICP备19000295号</a>&nbsp;&nbsp;<a
+                    target="_blank" href="javascript:;">食品流通许可证编号：SP1101151210063489</a>&nbsp;&nbsp;
+                <a target="_blank" href="javascript:;">信息网络传播视听节目许可证 0102002号</a>&nbsp;&nbsp;<a target="_blank"
+                    href="https://cnr-xiaopin.oss-cn-beijing.aliyuncs.com/certificate/%E5%89%AF%E6%9C%AC.jpg">营业执照</a>
+            </p>
+            <p>央广小品科技(北京)有限公司</p>
+            <p>Copyright<em style="font-family:Arial,Verdana; margin:0 4px">©</em>2010-2019 cnrmall.com All Rights
+                Reserved&nbsp;&nbsp;&nbsp;&nbsp;服务热线：4008-518-518</p>
+            <!--Copyright © 2018 央广小品,All rights reserved.&nbsp;&nbsp;&nbsp;&nbsp;京ICP备10038858号 京公网安备：11011502002190 服务热线：4008-518-518<br />-->
+            <!--Powered by <span style="font-weight: 600;"><font style="color:orange;">Cnrmall.com</font><font style="color:blue;"></font></span><br />-->
+            <script
+                type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1260731735'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1260731735' type='text/javascript'%3E%3C/script%3E"));</script>
+
+            <script>
+                var _hmt = _hmt || [];
+                (function () {
+                    var hm = document.createElement("script");
+                    hm.src = "https://hm.baidu.com/hm.js?905123a113c36971dd79389429636f4c";
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(hm, s);
+                })();
+            </script>
+            <ul class="footer-img">
+                <li><a class="img01" href="javascript:;"></a></li>
+                <li>
+                    <script src="https://kxlogo.knet.cn/seallogo.dll?sn=e16110811011565130ecka000000&size=0"></script>
+                </li>
+                <li><a id='___szfw_logo___' href='https://credit.szfw.org/CX63030000051620161107.html'
+                        target='_blank'><img src='http://icon.szfw.org/cert.png' border='0' /></a></li>
+                <li><a class="img05" href="http://www.bj.cyberpolice.cn/index.do" target="_blank"></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
