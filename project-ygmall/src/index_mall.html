@@ -7,9 +7,12 @@
 	<meta name="description"
 		content="央广小品 - （cnrmall.com）-是由中央人民广播电台和美国QVC联合打造的居家购物公司，获国家广电总局批准的电视购物频道，24小时客服热线:4008-518-518" />
 	<title>央广商城</title>
-	<link rel="stylesheet" href="css/index_mall.css">
 	<link rel="stylesheet" href="css/web-common.css">
 	<link rel="stylesheet" href="css/fundam.css">
+	<link rel="stylesheet" href="css/public-scrollbar.css">
+	<link rel="stylesheet" href="css/font-awesome.css">
+	<link rel="stylesheet" href="css/index_mall.css">
+
 </head>
 
 <body>
@@ -1166,9 +1169,8 @@
 									<div class="cate-detail">
 										<dl class="cate-detail-item">
 											<dt class="cate-detail-tit">
-												<a target="_blank" href="/search?cat=226">金质饰品<i
-														class="fa fa-angle-right m-l-5 m-r-0"
-														aria-hidden="true"></i></a> </dt>
+												<a target="_blank" href="/search?cat=226">金质饰品<i>&nbsp;&gt;</i></a>
+											</dt>
 											<dd class="cate-detail-con">
 												<a target="_blank" href="/search?cat=229">足金饰品</a> <a target="_blank"
 													href="/search?cat=231">铂金/K金饰品</a> <a target="_blank"
@@ -1178,9 +1180,8 @@
 
 										<dl class="cate-detail-item">
 											<dt class="cate-detail-tit">
-												<a target="_blank" href="/search?cat=235">银质制品<i
-														class="fa fa-angle-right m-l-5 m-r-0"
-														aria-hidden="true"></i></a> </dt>
+												<a target="_blank" href="/search?cat=235">银质制品<i>&nbsp;&gt;</i></a>
+											</dt>
 											<dd class="cate-detail-con">
 												<a target="_blank" href="/search?cat=237">足银饰品</a> <a target="_blank"
 													href="/search?cat=240">银合金饰品</a> <a target="_blank"
@@ -1190,9 +1191,8 @@
 
 										<dl class="cate-detail-item">
 											<dt class="cate-detail-tit">
-												<a target="_blank" href="/search?cat=245">钟表文玩<i
-														class="fa fa-angle-right m-l-5 m-r-0"
-														aria-hidden="true"></i></a> </dt>
+												<a target="_blank" href="/search?cat=245">钟表文玩<i>&nbsp;&gt;</i></a>
+											</dt>
 											<dd class="cate-detail-con">
 												<a target="_blank" href="/search?cat=394">字画收藏</a>
 											</dd>
@@ -1357,39 +1357,54 @@
 					<div class="nc-tbar-panel-footer"></div>
 
 					<!-- S 优惠券活动项模板 -->
-					
-            <div class="coupon-activity-item <% if(searchCouponActivityVo.searchDataSource=='coupon') { %>platform<% } %>" id="couponActivityItem_<%- searchCouponActivityVo.searchSn %>" >
-              <div class="v-type">
-                <!-- 优惠券金额 -->
-                <div class="v-price"><strong class="number number-20 number-36"><%= Nc.priceFormatNew(searchCouponActivityVo.couponPrice) %></strong><div class="txt"><span><%- searchCouponActivityVo.limitAmountText %></span></div></div>
-                <div class="v-range">
-                  <!-- 优惠券使用范围 -->
-                  <div class="range-item"><p><%- searchCouponActivityVo.useGoodsRangeExplain %></p></div>
-                  <!-- 优惠券使用平台类型 -->
-                  <% if(searchCouponActivityVo.usableClientType!="all") { %>
-                  <div class="range-item"><%- searchCouponActivityVo.usableClientTypeText %></div>
-                  <% } %>
-                </div>
-              </div>
-              <div class="v-opbtns">
-                <a href="javascript:;" nc-type="receiveBlock" data-search-sn="<%- searchCouponActivityVo.searchSn %>" <% if(memberIsReceive==1) { %>style="display:none;"<% } %>><b class="semi-circle"></b>立即领取</a>
-                <a href="javascript:;" nc-type="toGoodsListBlock" data-search-data-source="<%- searchCouponActivityVo.searchDataSource %>" data-store-id="<%- searchCouponActivityVo.storeId %>" data-activity-id="<%- searchCouponActivityVo.activityId %>" <% if(memberIsReceive==0) { %>style="display:none;"<% } %>><b class="semi-circle"></b>立即使用</a>
-              </div>
-              <div class="v-state">
-                <div class="btn-state <% if(memberIsReceive==1) { %>btn-geted<% } %>" nc-type="stateBlock"></div>
-              </div>
-            </div>
-         
+
+					<div class="coupon-activity-item <% if(searchCouponActivityVo.searchDataSource=='coupon') { %>platform<% } %>"
+						id="couponActivityItem_<%- searchCouponActivityVo.searchSn %>">
+						<div class="v-type">
+							<!-- 优惠券金额 -->
+							<div class="v-price"><strong
+									class="number number-20 number-36"><%= Nc.priceFormatNew(searchCouponActivityVo.couponPrice) %></strong>
+								<div class="txt"><span><%- searchCouponActivityVo.limitAmountText %></span></div>
+							</div>
+							<div class="v-range">
+								<!-- 优惠券使用范围 -->
+								<div class="range-item">
+									<p><%- searchCouponActivityVo.useGoodsRangeExplain %></p>
+								</div>
+								<!-- 优惠券使用平台类型 -->
+								<% if(searchCouponActivityVo.usableClientType!="all") { %>
+								<div class="range-item"><%- searchCouponActivityVo.usableClientTypeText %></div>
+								<% } %>
+							</div>
+						</div>
+						<div class="v-opbtns">
+							<a href="javascript:;" nc-type="receiveBlock"
+								data-search-sn="<%- searchCouponActivityVo.searchSn %>"
+								<% if(memberIsReceive==1) { %>style="display:none;" <% } %>><b
+									class="semi-circle"></b>立即领取</a>
+							<a href="javascript:;" nc-type="toGoodsListBlock"
+								data-search-data-source="<%- searchCouponActivityVo.searchDataSource %>"
+								data-store-id="<%- searchCouponActivityVo.storeId %>"
+								data-activity-id="<%- searchCouponActivityVo.activityId %>"
+								<% if(memberIsReceive==0) { %>style="display:none;" <% } %>><b
+									class="semi-circle"></b>立即使用</a>
+						</div>
+						<div class="v-state">
+							<div class="btn-state <% if(memberIsReceive==1) { %>btn-geted<% } %>" nc-type="stateBlock">
+							</div>
+						</div>
+					</div>
+
 					<!-- E 优惠券活动项模板 -->
 					<!-- S 暂无优惠券活动模板 -->
-					
-            <div class="nc-tbar-tipbox2">
-              <div class="tip-inner">
-                <i class="i-face-fd"></i>
-                <div class="tip-text">暂无可领的优惠券~</div>
-              </div>
-            </div>
-          
+
+					<div class="nc-tbar-tipbox2">
+						<div class="tip-inner">
+							<i class="i-face-fd"></i>
+							<div class="tip-text">暂无可领的优惠券~</div>
+						</div>
+					</div>
+
 					<!-- E 暂无优惠券活动模板 -->
 				</div>
 				<!-- E 优惠券展示区域 -->
@@ -1437,7 +1452,7 @@
 
 	<link href="https://statics.cnrmall.com/public/toolkit/perfect-scrollbar/v120/perfect-scrollbar.min.css"
 		rel="stylesheet" />
-	
+
 	<link href="https://statics.cnrmall.com/web/static/css/web_index.css" rel="stylesheet" />
 	<div class="home-focus-layout">
 		<!-- ▼ 顶部直播 -->
@@ -1507,7 +1522,7 @@
 				<div class="title">
 					<i class="icon"></i>
 					<h3>秒杀专区</h3>
-					<a href="/seckill">Spike zone<i class="fa fa-angle-right m-l-5"></i></a>
+					<a href="/seckill">Spike zone<i>&nbsp;&gt;</i></a>
 				</div>
 				<div class="countdown">
 					<span class="tip">本场秒杀</span>
@@ -2496,7 +2511,7 @@
 			<ul class="footer-img">
 				<li><a class="img01" href="javascript:;"></a></li>
 				<li>
-					
+
 				</li>
 				<li><a id='___szfw_logo___' href='https://credit.szfw.org/CX63030000051620161107.html'
 						target='_blank'><img src='http://icon.szfw.org/cert.png' border='0' /></a></li>
@@ -2504,7 +2519,7 @@
 			</ul>
 		</div>
 	</div>
-	
+
 
 </body>
 
