@@ -11,7 +11,24 @@
     <title>央广购物</title>
     <link rel="stylesheet" href="css/fundam.css">
     <link rel="stylesheet" href="css/registor.css">
+    <style>
+        .nc-register-mode .tabs-content{
+            padding-left: 16px;
+        }
+        #mobileFormFirst dl{
+            width: 400px
+        }
+        #mobileFormFirst dd{
+            position: relative;
+        }
+        #mobileFormFirst dd span{
+            position: absolute;
+            right:-150px;
+            top: 16px;
+            width:100px;
+        }
 
+    </style>
 </head>
 
 <body>
@@ -30,7 +47,7 @@
                 <div class="left">
                     <div id="registerModule" class="nc-register-mode">
                         <ul class="tabs-nav">
-                            <li><a href="javascript:void(0);">手机注册<i></i></a></li>
+                            <li><a href="javascript:void(0);">用户注册<i></i></a></li>
                         </ul>
                         <div id="tabs_container" class="tabs-container">
                             <div class="tabs-content">
@@ -39,7 +56,8 @@
                                         <dt>用户名：</dt>
                                         <dd>
                                             <input name="mobile" type="text" class="text" id="mobile"
-                                                placeholder="请输入用户名" autocomplete="off" maxlength="11" />
+                                                autocomplete="off"/>
+                                            <span></span>
                                         </dd>
                                     </dl>
 
@@ -48,6 +66,7 @@
                                         <dt>设置密码：</dt>
                                         <dd>
                                             <input type="password" id="mobileMemberPwd" class="text" name="memberPwd" />
+                                            <span></span>
                                         </dd>
                                     </dl>
                                     <dl>
@@ -55,6 +74,7 @@
                                         <dd>
                                             <input type="password" id="mobileRepeatMemberPwd" class="text"
                                                 name="repeatMemberPwd" />
+                                                <span></span>
                                         </dd>
                                     </dl>
                                 
@@ -145,6 +165,8 @@
             </ul>
         </div>
     </div>
+    <script src="script/js/jquery.js"></script>
+    <script src="script/js/registor.js"></script>
 </body>
 
 </html>
