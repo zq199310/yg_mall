@@ -51,11 +51,12 @@
                         </ul>
                         <div id="tabs_container" class="tabs-container">
                             <div class="tabs-content">
-                                <form id="mobileFormFirst" class="nc-login-form" name="mobileForm" method="post">
+                                <form id="mobileFormFirst" class="nc-login-form" name="mobileForm" 
+                                action="http://localhost/project-ygmall/php/registor.php" method="post">
                                     <dl style="margin-bottom: 20px">
                                         <dt>用户名：</dt>
                                         <dd>
-                                            <input name="mobile" type="text" class="text" id="mobile"
+                                            <input name="username" type="text" class="text" id="mobile"
                                                 autocomplete="off"/>
                                             <span></span>
                                         </dd>
@@ -65,7 +66,7 @@
                                     <dl style="margin-bottom: 20px">
                                         <dt>设置密码：</dt>
                                         <dd>
-                                            <input type="password" id="mobileMemberPwd" class="text" name="memberPwd" />
+                                            <input type="password" id="mobileMemberPwd" class="text" name="password" />
                                             <span></span>
                                         </dd>
                                     </dl>
@@ -73,7 +74,7 @@
                                         <dt>确认密码：</dt>
                                         <dd>
                                             <input type="password" id="mobileRepeatMemberPwd" class="text"
-                                                name="repeatMemberPwd" />
+                                                name="confirm" />
                                                 <span></span>
                                         </dd>
                                     </dl>
@@ -81,13 +82,13 @@
                                     <dl class="clause-div">
                                         <dd>
                                             <input type="checkbox" checked="checked" value="1" class="checkbox"
-                                                id="mobileAgreeClause" name="agreeClause" />
+                                                id="mobileAgreeClause" name="agree" />
                                             阅读并同意 <a title="阅读并同意" class="agreement" href="javascript:void(0);"
                                                 nc_type="btnShowClauseDialog">《服务协议》</a> </dd>
                                     </dl>
 
                                     <div class="submit-div">
-                                        <button id="mobileSubmitFirst" class="submit" type="button">立即注册</button>
+                                        <input id="mobileSubmitFirst" class="submit" type="submit" name="submit" value="提交注册">
                                     </div>
                                 </form>
     
@@ -142,22 +143,11 @@
                 Reserved&nbsp;&nbsp;&nbsp;&nbsp;服务热线：4008-518-518</p>
             <!--Copyright © 2018 央广小品,All rights reserved.&nbsp;&nbsp;&nbsp;&nbsp;京ICP备10038858号 京公网安备：11011502002190 服务热线：4008-518-518<br />-->
             <!--Powered by <span style="font-weight: 600;"><font style="color:orange;">Cnrmall.com</font><font style="color:blue;"></font></span><br />-->
-            <script
-                type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1260731735'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1260731735' type='text/javascript'%3E%3C/script%3E"));</script>
-
-            <script>
-                var _hmt = _hmt || [];
-                (function () {
-                    var hm = document.createElement("script");
-                    hm.src = "https://hm.baidu.com/hm.js?905123a113c36971dd79389429636f4c";
-                    var s = document.getElementsByTagName("script")[0];
-                    s.parentNode.insertBefore(hm, s);
-                })();
-            </script>
+           
             <ul class="footer-img">
                 <li><a class="img01" href="javascript:;"></a></li>
                 <li>
-                    <script src="https://kxlogo.knet.cn/seallogo.dll?sn=e16110811011565130ecka000000&size=0"></script>
+                    
                 </li>
                 <li><a id='___szfw_logo___' href='https://credit.szfw.org/CX63030000051620161107.html'
                         target='_blank'><img src='http://icon.szfw.org/cert.png' border='0' /></a></li>

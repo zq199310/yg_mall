@@ -35,35 +35,27 @@
                 <div id="loginModule" class="nc-login-mode">
                     <ul class="login-tabs-nav">
                         <li><a href="#commonModule" class="tabulous_active">用户登录</a></li>
-                        <li><a href="#mobileModule">手机动态码登录</a></li>
                         <span class="tabulousclear"></span>
                     </ul>
                     <div id="tabs_container" class="login-tabs-container">
                         <div id="commonModule" class="tabs-content">
                             <form id="loginForm" class="login-form" name="loginForm" method="post">
+                                <p style="width: 100px"></p>
                                 <div class="item item-fore1">
                                     <label for="loginName" class="login-label name-label" title="登录账号"></label>
                                     <input type="text" class="itxt" id="loginName" name="loginName" autocomplete="off"
-                                        placeholder="手机号/会员名/邮箱">
+                                        placeholder="请输入用户名">
                                 </div>
                                 <div class="item item-fore2">
                                     <label for="memberPwd" class="login-label pwd-label" title="登录密码"></label>
                                     <input type="password" class="itxt" id="memberPwd" name="memberPwd"
-                                        placeholder="输入账户密码" autocomplete="off" />
+                                        placeholder="请输入密码" autocomplete="off" />
                                 </div>
-
-
-                                <!-- <div class="item item-fore2">
-                                <label for="captcha" class="login-label vcode-label" title="验证码"></label>
-                                <input id="captcha" class="itxt itxt02" type="text" name="captcha" maxlength="4" placeholder="输入验证码" autocomplete="off"/>
-                                <div class="verify-code"><img id="codeimage" src="/captcha/getcaptcha" class="codeimg" style="height: 38px;" alt=""/><a href="JavaScript:void(0);" nc_type="changeCaptcha" onclick="javascript:document.getElementById('codeimage').src='/captcha/getcaptcha?t='+Math.random()" class="code-pic">看不清<br/>
-                                  换一张</a></div>
-                              </div> -->
                                 <div class="item item-fore4">
                                     <div class="safe"> <span class="auto">
                                             <input type="checkbox" value="1" class="checkbox" id="autoLogin"
                                                 name="autoLogin">
-                                            七天自动登录<em
+                                            自动登录<em
                                                 style="display: none;margin-left: 5px;color: #ff3238;">请勿在公用电脑上使用</em>
                                         </span><span class="forget-pw-safe"><a href="/findpwd" class>忘记密码</a></span>
                                     </div>
@@ -75,49 +67,10 @@
                               </div> -->
 
                                 <div class="item">
-                                    <div id="pwd-login" class="slide-imgver-btn ">
-                                        <i></i> <span> 登录</span>
-                                    </div>
+
+                                    <button id="pwd-login" type="button" class="slide-imgver-btn ">登录</button>
+
                                     <!-- <div  class="errors "><i class="fa fa-exclamation-circle"></i><span>点击按钮进行验证</span></div> -->
-                                </div>
-                            </form>
-                        </div>
-                        <div id="mobileModule" class="tabs-content" style="display: none;">
-                            <form id="mobileForm" class="login-form" name="mobileForm" method="post">
-                                <div id="phoneItemError" class="item item-fore1">
-                                    <label for="mobile" class="login-label mobile-label" title="手机号"></label>
-                                    <input type="text" class="itxt" id="mobile" name="mobile"
-                                        placeholder="可填写已注册的手机号接收短信" autocomplete="off" />
-
-                                    <div id="phone-error-forSlide" class="errors "><i
-                                            class="fa fa-exclamation-circle"></i><span>请输入正确的手机号</span></div>
-
-                                </div>
-                                <div class="phone-login-yzm errors">验证码已发送，请将“6位短信动态码”输入到下方。</div>
-
-                                <div class="item" style="margin-bottom:0;height:66px;">
-                                    <div id="phone-login" class="slide-imgver-btn ">
-                                        <i></i> <span> 点击发送验证码</span>
-                                    </div>
-                                    <div id="count-down" class="phone-login-yzm errors "><span>您可以在<span
-                                                class="count-down-time">60</span>秒后再次获取验证码</span></div>
-                                </div>
-                                <!-- <div class="item item-fore2">
-                                <label for="captchaMobile" class="login-label vcode-label" title="验证码"></label>
-                                <input id="captchaMobile" class="itxt itxt02" type="text" name="captcha" maxlength="4" placeholder="输入验证码" autocomplete="off"/>
-                                <div class="verify-code"><img id="codeimageMobile" src="" class="codeimg" style="height: 38px;" alt=""/><a href="JavaScript:void(0);" nc_type="changeCaptcha" onclick="javascript:document.getElementById('codeimageMobile').src='/captcha/getcaptcha?t='+Math.random()" class="code-pic">看不清<br/>
-                                  换一张</a></div>
-                              </div>
-                              <div class="tiptext">正确输入上方验证码后，点击<a href="###" id="sendSmsCode"><i class="fa fa-mobile"></i>发送短信动态码</a>，查收短信将系统发送的“6位短信动态码”输入到下方。 </div> -->
-                                <div class="item item-fore2">
-                                    <label class="login-label mcode-label" title="短信动态码"></label>
-                                    <input type="text" readonly class="itxt" id="authCode" name="authCode" maxlength="6"
-                                        placeholder="输入6位短信动态码" autocomplete="off">
-                                </div>
-                                <div class="item item-fore5">
-                                    <div class="login-btn lock-click">
-                                        <button id="mobileSubmit" class="btn-img">登录</button>
-                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -164,18 +117,7 @@
                 Reserved&nbsp;&nbsp;&nbsp;&nbsp;服务热线：4008-518-518</p>
             <!--Copyright © 2018 央广小品,All rights reserved.&nbsp;&nbsp;&nbsp;&nbsp;京ICP备10038858号 京公网安备：11011502002190 服务热线：4008-518-518<br />-->
             <!--Powered by <span style="font-weight: 600;"><font style="color:orange;">Cnrmall.com</font><font style="color:blue;"></font></span><br />-->
-            <script
-                type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1260731735'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "w.cnzz.com/q_stat.php%3Fid%3D1260731735' type='text/javascript'%3E%3C/script%3E"));</script>
 
-            <script>
-                var _hmt = _hmt || [];
-                (function () {
-                    var hm = document.createElement("script");
-                    hm.src = "https://hm.baidu.com/hm.js?905123a113c36971dd79389429636f4c";
-                    var s = document.getElementsByTagName("script")[0];
-                    s.parentNode.insertBefore(hm, s);
-                })();
-            </script>
             <ul class="footer-img">
                 <li><a class="img01" href="javascript:;"></a></li>
                 <li>
@@ -187,6 +129,9 @@
             </ul>
         </div>
     </div>
+    <script src="script/js/jquery.js"></script>
+    <script src="script/js/sha1.js"></script>
+    <script src="script/js/login.js"></script>
 </body>
 
 </html>

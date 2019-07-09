@@ -12,6 +12,140 @@
 	<link rel="stylesheet" href="css/public-scrollbar.css">
 	<link rel="stylesheet" href="css/font-awesome.css">
 	<link rel="stylesheet" href="css/index_mall.css">
+	<style>
+		#banner {
+			position: relative;
+			overflow: hidden
+		}
+
+		#banner ul {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+
+		}
+
+		#banner ul li {
+			float: left;
+			position: static;
+			width: 1220px;
+		}
+
+		#banner ul li img {
+			display: inline-block;
+			width: 1220px;
+			height: 400px;
+		}
+
+		#banner ol {
+			position: absolute;
+			z-index: 50;
+			width: 180px;
+			height: 20px;
+			left: 50%;
+			margin-left: -90px;
+			bottom: 20px;
+		}
+
+		#banner ol li {
+			float: left;
+			width: 20px;
+			height: 20px;
+			border: 1px solid #ccc;
+			border-radius: 50%;
+			background: white;
+			margin: 0 5px;
+			text-indent: -99999px;
+			cursor: pointer;
+		}
+
+		#banner ol li.active {
+			background: red;
+		}
+
+		#right,
+		#left {
+			font-size: 50px;
+			color: #fff;
+			font-family: verdana;
+			position: absolute;
+			z-index: 100;
+			text-decoration: none;
+			top: 120px;
+			display: none;
+			background: #ccc;
+			opacity: 0.5
+		}
+
+		#left {
+			left: 220px;
+		}
+
+		#right {
+			right: 220px;
+		}
+
+		#right:hover,
+		#left:hover {
+			color: #000;
+		}
+
+		#seckillTimeDown {
+			font-size: 16px;
+			line-height: 45px;
+			color: #fff;
+		}
+		#loutinav {
+            width: 35px;
+			position: fixed;
+			z-index: 200;
+            top: 60px;
+            left: 10px;
+            border: 1px solid #ddd;
+            display: none;
+        }
+
+        #loutinav ul li {
+            width: 35px;
+            height: 32px;
+            border-bottom: 1px dotted #DDDDDD;
+            list-style: none;
+            font-size: 12px;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            padding: 10px 0;
+            background: #918888;
+            color: #fff;
+        }
+
+        #loutinav ul li span {
+            width: 35px;
+            height: 32px;
+            padding: 10px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #loutinav ul li.last {
+            background: #5e4a4a;
+            color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #loutinav ul li.active span {
+            background: #c00;
+            color: #fff;
+            display: block;
+        }
+
+        #loutinav ul li:hover span {
+            background: #c00;
+            color: #fff;
+            display: block;
+        }
+	</style>
 
 </head>
 
@@ -1462,7 +1596,9 @@
 					<a target="_blank" href="/tv"><i class="live-banner01"></i></a>
 					<div class="live-goods">
 						<div class="live-special">
-							<img id="special_img" src="https://pic4.cnrmall.com/dw/126036/126036_0.jpg@240w_240h"></div>
+							<img id="special_img"
+								src="https://pic5.cnrmall.com/image/49/23/49236247dd1c7b7667e371f3c16adde3.jpg@240w_240h">
+						</div>
 						<a target="_blank" class="mask" href="/goods/71450"></a>
 						<span class="goods-title">
 							<p><a target="_blank" href="/goods/71450" title="茅台集团白金十二生肖总动员">茅台集团白金十二生肖总动员</a></p>
@@ -1476,7 +1612,7 @@
 					<div class="live-goods">
 						<div class="live-specials">
 							<a target="_blank" href="/goods/47735"><img
-									src="https://pic2.cnrmall.com/image/25/c1/25c17b04cabaaff2526e70d6015dec36.jpg@60w_60h"></a>
+									src="https://pic5.cnrmall.com/image/4c/90/4c908aeabdba95e14915a4fa6cddb81e.jpg@60w_60h"></a>
 						</div>
 
 						<span class="goods-title special-title">
@@ -1492,14 +1628,24 @@
 			</div>
 		</div>
 
-		<div class="focus" style="top:79px;left: 0px;">
+		<div class="focus" style="top:79px;left: 0px;" id="banner">
 			<ul id="homeTopBanner">
-
-				<li data-nc-bg-color="#c5000c"
-					style=" background-color: #c5000c; background-image: url('https://pic.cnrmall.com/image/70/0c/700c2f9097622de35f6afdbbdfe12bf9.jpg');">
+				<li data-nc-bg-color="#c5000c">
+					<img src="https://pic.cnrmall.com/image/70/0c/700c2f9097622de35f6afdbbdfe12bf9.jpg">
+					<a target="_blank" href="https://www.cnrmall.com/special/1" height="400" width="790"></a>
+				</li>
+				<li data-nc-bg-color="#c5000c">
+					<img
+						src="http://img.kjeccloud.com:8081/mkt/Original/2019/0523/75b4f902-bfce-495f-88ce-fd0a7d21621e.jpg">
 					<a target="_blank" href="https://www.cnrmall.com/special/1" height="400" width="790"></a>
 				</li>
 			</ul>
+			<ol>
+				<li class="active">1</li>
+				<li>2</li>
+			</ol>
+			<a href="javascript:;" id="left">&lt;</a>
+			<a href="javascript:;" id="right">&gt;</a>
 		</div>
 		<div class="right-bar" style="top:79px;">
 			<h2>今日最大牌</h2>
@@ -1511,12 +1657,18 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
+	<!-- 侧边栏楼梯开始 -->
+	<div id="loutinav">
+		<ul>
+			<li class="active"><span>秒杀专区</span> </li>
+			<li><span>食品酒水</span> </li>
+			<li><span>服饰美妆</span> </li>
+			<li><span>猜你喜欢</span> </li>
+			<li class="last">顶部</li>
+		</ul>
+	</div>
 	<!-- 秒杀专区 -->
-	<div class="home-seckill-layout">
+	<div class="home-seckill-layout louceng">
 		<div class="seckill-box">
 			<div class="seckill-title">
 				<div class="title">
@@ -1536,7 +1688,7 @@
 						<div class="sk-goods-info">
 							<a href="/goods/79188" target="_blank" class="sk-link">
 								<img title="" alt=""
-									src="https://pic4.cnrmall.com/image/33/39/3339b9eb5be74a14a6a81531360e39c5.jpg">
+									src="https://pic5.cnrmall.com/image/d9/9c/d99c7827a1a4d5479685dfd327dfabb1.jpg">
 								<p class="sk-name">冠 军麦兜19夏季新款圆领短T</p>
 							</a>
 							<span class="sk-shadow"></span>
@@ -1553,7 +1705,7 @@
 						<div class="sk-goods-info">
 							<a href="/goods/73341" target="_blank" class="sk-link">
 								<img title="" alt=""
-									src="https://pic2.cnrmall.com/image/4f/d3/4fd3e697469952ff9700e8792d1e46e7.jpg">
+									src="https://pic2.cnrmall.com/image/d2/69/d2699273a5d18457f3d79786f6a673a3.jpeg">
 								<p class="sk-name">莉娜睡宝Alina乳胶枕头礼品泰国原装进口天然乳胶枕护颈椎助睡眠枕芯P1-P4成人乳胶枕</p>
 							</a>
 							<span class="sk-shadow"></span>
@@ -1587,7 +1739,7 @@
 						<div class="sk-goods-info">
 							<a href="/goods/74462" target="_blank" class="sk-link">
 								<img title="" alt=""
-									src="https://pic2.cnrmall.com/image/3d/fc/3dfc64449568e06423bcd28fe86cd233.jpg">
+									src="https://pic3.cnrmall.com/image/fe/d7/fed7cdac18e81b8ee949ae7f81dabbf9.jpg">
 								<p class="sk-name">2019年新款安全健步鞋老人鞋子中老年人休闲运动鞋</p>
 							</a>
 							<span class="sk-shadow"></span>
@@ -1692,11 +1844,8 @@
 	</ul>
 
 
-
-
-
-
-	<div id="floor_1" class="home-standard-layout home-style-1" data-nc-floor-panel>
+	<!-- 食品酒水 -->
+	<div id="floor_1" class="home-standard-layout home-style-1 louceng" data-nc-floor-panel>
 		<div class="w floor floor-t3 csstransitions clearfix">
 			<div class="col col1">
 				<!-- 开始楼层顶部标题及文字链接栏 -->
@@ -1714,7 +1863,7 @@
 								<a href="https://www.cnrmall.com/search?cat=109" target="_blank" class="bz-cover-lk"
 									title="">
 									<img class="bz-cover-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/bd/5a/bd5a6cf84f4eba9ee29276cc978e99da.jpg"
 										data-original="https://pic.cnrmall.com/image/bd/5a/bd5a6cf84f4eba9ee29276cc978e99da.jpg"
 										alt="" />
 								</a>
@@ -1728,7 +1877,7 @@
 									<p class="bz-bi-tit" style="color: #ffd300">精选蜂蜜</p>
 									<p class="bz-bi-promo">纯纯蜜香 其味浓浓</p>
 									<img class="bz-bi-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/89/25/89252c0122369ab10ab204f61301f5b5.jpg"
 										data-original="https://pic.cnrmall.com/image/89/25/89252c0122369ab10ab204f61301f5b5.jpg"
 										alt="" />
 								</a>
@@ -1737,7 +1886,7 @@
 									<p class="bz-bi-tit" style="color: #ffd300">冲调粉茶</p>
 									<p class="bz-bi-promo">浓缩精华</p>
 									<img class="bz-bi-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/cd/0e/cd0e2e92839cd2e0b5ac5651a73ffe4a.jpg"
 										data-original="https://pic.cnrmall.com/image/cd/0e/cd0e2e92839cd2e0b5ac5651a73ffe4a.jpg"
 										alt="" />
 								</a>
@@ -1746,7 +1895,7 @@
 									<p class="bz-bi-tit" style="color: #ffd300">粮油副食</p>
 									<p class="bz-bi-promo">精品杂粮 营养丰富</p>
 									<img class="bz-bi-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/d7/78/d77804c72ff4739ff29342bc4eef338d.jpg"
 										data-original="https://pic.cnrmall.com/image/d7/78/d77804c72ff4739ff29342bc4eef338d.jpg"
 										alt="" />
 								</a>
@@ -1755,7 +1904,7 @@
 									<p class="bz-bi-tit" style="color: #ffd300">即食罐头</p>
 									<p class="bz-bi-promo">美味即享</p>
 									<img class="bz-bi-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/aa/40/aa4027cfc852b2e258afd67433fb1feb.jpg"
 										data-original="https://pic.cnrmall.com/image/aa/40/aa4027cfc852b2e258afd67433fb1feb.jpg"
 										alt="" />
 								</a>
@@ -1765,21 +1914,21 @@
 								<a href="https://www.cnrmall.com/search?cat=2" target="_blank" class="bz-more-item"
 									title="">
 									<img class="bz-more-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/0a/9a/0a9aefbe9c4c48c7575c1e21fcb5e31f.jpg"
 										data-original="https://pic.cnrmall.com/image/0a/9a/0a9aefbe9c4c48c7575c1e21fcb5e31f.jpg"
 										alt="" />
 								</a>
 								<a href="https://www.cnrmall.com/search?cat=4" target="_blank" class="bz-more-item"
 									title="">
 									<img class="bz-more-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/0c/6a/0c6a25bc3e00d9e28db90273b47835fd.jpg"
 										data-original="https://pic.cnrmall.com/image/0c/6a/0c6a25bc3e00d9e28db90273b47835fd.jpg"
 										alt="" />
 								</a>
 								<a href="https://www.cnrmall.com/search?cat=422" target="_blank" class="bz-more-item"
 									title="">
 									<img class="bz-more-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/29/e9/29e9f019431455aa9c951a5137ec1f69.jpg"
 										data-original="https://pic.cnrmall.com/image/29/e9/29e9f019431455aa9c951a5137ec1f69.jpg"
 										alt="" />
 								</a>
@@ -1793,7 +1942,7 @@
 								<a href="https://www.cnrmall.com/search?cat=68" target="_blank" class="bz-cover-lk"
 									title="">
 									<img class="bz-cover-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/42/1d/421d8db99b0e65faff97b3739a97abb9.jpg"
 										data-original="https://pic.cnrmall.com/image/42/1d/421d8db99b0e65faff97b3739a97abb9.jpg"
 										alt="">
 								</a>
@@ -1802,7 +1951,7 @@
 								<a href="https://www.cnrmall.com/search?cat=103" target="_blank" class="bz-cover-lk"
 									title="">
 									<img class="bz-cover-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/70/94/7094d59e5f9cd7133ede8aeda9620989.jpg"
 										data-original="https://pic.cnrmall.com/image/70/94/7094d59e5f9cd7133ede8aeda9620989.jpg"
 										alt="">
 								</a>
@@ -1814,14 +1963,14 @@
 									title="休闲小食">
 									<p class="bz-bi-tit" style="color: #d12f06">休闲小食</p>
 									<p class="bz-bi-promo">老少皆宜</p><img class="bz-bi-img J-lazy" title="休闲小食"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/70/94/7094d59e5f9cd7133ede8aeda9620989.jpg"
 										data-original="https://pic.cnrmall.com/image/8e/a1/8ea1ebcae314b255d6dd7f4f10a54829.jpg" />
 								</a>
 								<a href="https://www.cnrmall.com/search?cat=118" target="_blank"
 									class="bz-bi-item J-log" title="肉禽蛋品">
 									<p class="bz-bi-tit" style="color: #d12f06">肉禽蛋品</p>
 									<p class="bz-bi-promo">味美鲜香</p><img class="bz-bi-img J-lazy" title="肉禽蛋品"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/57/0f/570f0b4c21d8a892c3a5a03dac72d3aa.jpg"
 										data-original="https://pic.cnrmall.com/image/57/0f/570f0b4c21d8a892c3a5a03dac72d3aa.jpg" />
 								</a>
 							</div>
@@ -1829,19 +1978,19 @@
 								<a href="https://www.cnrmall.com/search?keyword=枸杞" target="_blank" class="bz-more-item"
 									title="">
 									<img class="bz-more-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/48/58/485899e74bb69bfc6f89b742936ada71.jpg"
 										data-original="https://pic.cnrmall.com/image/48/58/485899e74bb69bfc6f89b742936ada71.jpg" />
 								</a>
 								<a href="https://www.cnrmall.com/search?cat=66" target="_blank" class="bz-more-item"
 									title="">
 									<img class="bz-more-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/3e/ca/3ecaa2be4ed5cbdcae96d99646f56421.jpg"
 										data-original="https://pic.cnrmall.com/image/3e/ca/3ecaa2be4ed5cbdcae96d99646f56421.jpg" />
 								</a>
 								<a href="https://www.cnrmall.com/search?cat=23" target="_blank" class="bz-more-item"
 									title="">
 									<img class="bz-more-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/b6/41/b6410b6009b87ecfbabaa35311695775.jpg"
 										data-original="https://pic.cnrmall.com/image/b6/41/b6410b6009b87ecfbabaa35311695775.jpg" />
 								</a>
 							</div>
@@ -1856,8 +2005,8 @@
 
 
 
-
-	<div id="floor_2" class="home-standard-layout home-style-2" data-nc-floor-panel>
+	<!-- 服饰美妆 -->
+	<div id="floor_2" class="home-standard-layout home-style-2 louceng" data-nc-floor-panel>
 		<div class="w floor floor-t5 csstransitions clearfix">
 			<div class="col col1">
 				<!-- 开始楼层顶部标题及文字链接栏 -->
@@ -1875,7 +2024,7 @@
 									<a href="https://www.cnrmall.com/search?cat=357" target="_blank" class="bz-cover-lk"
 										title="">
 										<img class="bz-cover-img J-lazy"
-											src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+											src="https://pic.cnrmall.com/image/d0/97/d09747b3348a7d53ba303d6663a61ec3.jpg"
 											data-original="https://pic.cnrmall.com/image/d0/97/d09747b3348a7d53ba303d6663a61ec3.jpg"
 											alt="" />
 									</a>
@@ -1889,7 +2038,7 @@
 									<p class="bz-bi-tit" style="color: #cd375e">补水面膜</p>
 									<p class="bz-bi-promo">润泽肌肤</p>
 									<img class="bz-bi-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/4e/75/4e7539f967aca800b066f44a3a2d9457.jpg"
 										data-original="https://pic.cnrmall.com/image/4e/75/4e7539f967aca800b066f44a3a2d9457.jpg"
 										alt="" />
 								</a>
@@ -1898,7 +2047,7 @@
 									<p class="bz-bi-tit" style="color: #cd375e">秀发护理</p>
 									<p class="bz-bi-promo">润滑发丝</p>
 									<img class="bz-bi-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/75/c5/75c5ef303ff773e0a93f442ca40e365a.jpg"
 										data-original="https://pic.cnrmall.com/image/75/c5/75c5ef303ff773e0a93f442ca40e365a.jpg"
 										alt="" />
 								</a>
@@ -1907,14 +2056,14 @@
 								<a href="https://www.cnrmall.com/search?cat=379" target="_blank" class="bz-more-item"
 									title="">
 									<img class="bz-more-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/a6/c9/a6c9b3f5b242231e6083b21daa88b65f.jpg"
 										data-original="https://pic.cnrmall.com/image/a6/c9/a6c9b3f5b242231e6083b21daa88b65f.jpg"
 										alt="" />
 								</a>
 								<a href="https://www.cnrmall.com/search?cat=359" target="_blank" class="bz-more-item"
 									title="">
 									<img class="bz-more-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/a0/a2/a0a2d00fbc8d1fb08f74fbdef810249e.jpg"
 										data-original="https://pic.cnrmall.com/image/a0/a2/a0a2d00fbc8d1fb08f74fbdef810249e.jpg"
 										alt="" />
 								</a>
@@ -1942,7 +2091,7 @@
 									<a href="https://www.cnrmall.com/search?cat=205" target="_blank" class="bz-cover-lk"
 										title="">
 										<img class="bz-cover-img J-lazy"
-											src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+											src="https://pic.cnrmall.com/image/cf/29/cf298b12cb1ef1a52c5b8a16a8b7bfb3.jpg"
 											data-original="https://pic.cnrmall.com/image/cf/29/cf298b12cb1ef1a52c5b8a16a8b7bfb3.jpg"
 											alt="" />
 									</a>
@@ -1956,7 +2105,7 @@
 									<p class="bz-bi-tit" style="color: #9c4275">女神范儿</p>
 									<p class="bz-bi-promo">尽显魅力</p>
 									<img class="bz-bi-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/61/87/6187222d781e45c94de02604cf26454c.jpg"
 										data-original="https://pic.cnrmall.com/image/61/87/6187222d781e45c94de02604cf26454c.jpg"
 										alt="" />
 								</a>
@@ -1965,7 +2114,7 @@
 									<p class="bz-bi-tit" style="color: #9c4275">文玩收藏</p>
 									<p class="bz-bi-promo">典藏一生</p>
 									<img class="bz-bi-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/7e/dd/7edda951a7a3784579183d84a86a246a.jpg"
 										data-original="https://pic.cnrmall.com/image/7e/dd/7edda951a7a3784579183d84a86a246a.jpg"
 										alt="" />
 								</a>
@@ -1974,14 +2123,14 @@
 								<a href="https://www.cnrmall.com/search?cat=207" target="_blank" class="bz-more-item"
 									title="">
 									<img class="bz-more-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/8b/f2/8bf24f3e02aa8851bd1c3ba41004293f.jpg"
 										data-original="https://pic.cnrmall.com/image/8b/f2/8bf24f3e02aa8851bd1c3ba41004293f.jpg"
 										alt="" />
 								</a>
 								<a href="https://www.cnrmall.com/search?cat=248" target="_blank" class="bz-more-item"
 									title="">
 									<img class="bz-more-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/a8/bd/a8bd2e4376d12b4af9fd97fa521b2538.jpg"
 										data-original="https://pic.cnrmall.com/image/a8/bd/a8bd2e4376d12b4af9fd97fa521b2538.jpg"
 										alt="" />
 								</a>
@@ -2010,7 +2159,7 @@
 									<a href="https://www.cnrmall.com/search?cat=290" target="_blank" class="bz-cover-lk"
 										title="">
 										<img class="bz-cover-img J-lazy"
-											src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+											src="https://pic.cnrmall.com/image/76/92/76923f420fbf0a4a292ea8011a0b455c.jpg"
 											data-original="https://pic.cnrmall.com/image/76/92/76923f420fbf0a4a292ea8011a0b455c.jpg"
 											alt="" />
 									</a>
@@ -2024,7 +2173,7 @@
 									<p class="bz-bi-tit" style="color: #78538e">品质生活</p>
 									<p class="bz-bi-promo">舒适便捷</p>
 									<img class="bz-bi-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/5f/35/5f353beda3b2ea0b24637085018ce0a8.jpg"
 										data-original="https://pic.cnrmall.com/image/5f/35/5f353beda3b2ea0b24637085018ce0a8.jpg"
 										alt="" />
 								</a>
@@ -2033,7 +2182,7 @@
 									<p class="bz-bi-tit" style="color: #78538e">创意家居</p>
 									<p class="bz-bi-promo">精致生活</p>
 									<img class="bz-bi-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/3b/69/3b697e155c1bbaef58b4128c8ed5ec2f.jpg"
 										data-original="https://pic.cnrmall.com/image/3b/69/3b697e155c1bbaef58b4128c8ed5ec2f.jpg"
 										alt="" />
 								</a>
@@ -2042,14 +2191,14 @@
 								<a href="https://www.cnrmall.com/search?cat=260" target="_blank" class="bz-more-item"
 									title="">
 									<img class="bz-more-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/60/88/6088cfcc06275c19c14b83c564fa4a68.jpg"
 										data-original="https://pic.cnrmall.com/image/60/88/6088cfcc06275c19c14b83c564fa4a68.jpg"
 										alt="" />
 								</a>
 								<a href="https://www.cnrmall.com/search?cat=259" target="_blank" class="bz-more-item"
 									title="">
 									<img class="bz-more-img J-lazy"
-										src="https://statics.cnrmall.com/web/static/img/transparent.gif"
+										src="https://pic.cnrmall.com/image/12/ae/12ae6caabfea92fe34766351b06d71c2.jpg"
 										data-original="https://pic.cnrmall.com/image/12/ae/12ae6caabfea92fe34766351b06d71c2.jpg"
 										alt="" />
 								</a>
@@ -2063,7 +2212,8 @@
 			</div>
 		</div>
 	</div>
-	<div id="floor_3" class="home-standard-layout home-style-3" data-nc-floor-panel>
+	<!-- 猜你喜欢 -->
+	<div id="floor_3" class="home-standard-layout home-style-3 louceng" data-nc-floor-panel>
 		<div class="w floor floor-t6 csstransitions clearfix">
 
 			<div class="bz-more-tit-inner">
@@ -2075,7 +2225,7 @@
 			<!-- 开始商品推荐内容 -->
 			<div class="bz-more-inner">
 				<ul class="bz-more-list clearfix">
-<!-- 
+					<!-- 
 					<li class="bz-more-goods">
 						<a class="bz-more-goods-lk" href="/goods/72108" target="_blank"
 							title="厨厨喵咪弥香麻辣西小龙虾熟食即食净虾650g*2 送海派拌面（葱油）单人份158g">
