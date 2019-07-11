@@ -334,12 +334,7 @@ i{cursor: default;}
 
 .goods-item{
 	padding: 0 10px 0 40px;
-	
 	position: relative;
-}
-
-.goods-item-sele{
-	background: #fff4e8;
 }
 
 .goods-info{

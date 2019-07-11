@@ -216,7 +216,65 @@
 
 
 }(jQuery);
-!function () {
-	//小效果
+!function ($) {
+	//懒加载效果
+	$(window).on('scroll', function () {
+		let $imgtop = $('.J-lazy').offset().top;
+		let $scrolltop = $(window).scrollTop();
+		let $clientheight = $(window).height();
+		if ($imgtop < $scrolltop + $clientheight) {
+			$('.J-lazy').each(function (index, element) {
+				$(element).attr('src', $(element).attr('_src'));
+			})
+		}
+	});
 
 }(jQuery);
+!function () {
+	//二级菜单显示隐藏
+	const $title = $('.top-menu');
+	$title.hover(function () {
+		$(this).find('.top-menu-con').css({
+			opacity: 1,
+			height: 100,
+			top: 35
+		})
+	}, function () {
+		$(this).find('.top-menu-con').css({
+			opacity: 0,
+			height: 0,
+			top: 0
+		})
+	})
+	const $mobilemall=$('.mobile-mall');
+	$mobilemall.hover(function () {
+		$(this).find('.top-menu-con').css({
+			opacity: 1,
+			height: 180,
+			top: 35
+		})
+	}, function () {
+		$(this).find('.top-menu-con').css({
+			opacity: 0,
+			height: 0,
+			top: 0
+		})
+	})
+	const $goodsmenu = $('.cate-menu-item');
+	$goodsmenu.hover(function () {
+		$(this).find('.cate-part').css({
+			display:'block',
+			left:180,
+			top: 0
+		})
+	}, function () {
+		$(this).find('.cate-part').css({
+			display:'none'
+		})
+	})
+}(jQuery);
+;!function($){
+//首页显示用户名
+const $user=$('.login-link');
+$user.html('您好,'+localStorage.getItem('username'));
+}(jQuery)

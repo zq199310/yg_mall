@@ -14,7 +14,8 @@
     <div class="public-top-layout">
         <div class="topbar wrapper">
             <div class="left">
-                <div class="mall-home"><a href="/"><span class="icon"></span>返回商城首页</a></div>
+                <div class="mall-home"><a href="http://localhost/project-ygmall/src/index_mall.html"><span
+                            class="icon"></span>返回商城首页</a></div>
                 <!-- s 配送至-->
                 <div class="my-city" id="shortCutMyCityPanel"></div>
                 <!-- E 配送至-->
@@ -107,15 +108,15 @@
         <div class="w">
             <!--购物车为空时显示的盒子-->
             <div class="empty-cart">
-                    <div class="empty-cart-msg">
-                        购物车空空的哦~，去看看心仪的商品吧~
-                        <a href="">去购物></a>
-                    </div>
+                <div class="empty-cart-msg">
+                    购物车空空的哦~，去看看心仪的商品吧~
+                    <a href="">去购物></a>
                 </div>
+            </div>
             <!--全部商品-->
-            <div class="cart-top" style="display: block;">
+            <div class="cart-top" style="display: block;padding: 4px">
                 <div class="cart-top-left">
-                    <a href=""><em>全部商品</em></a>
+                    <a href=""><em>我的购物车</em></a>
                 </div>
                 <div class="cart-top-right">
                     <span>配送至：</span>
@@ -131,7 +132,7 @@
                 </div>
             </div>
             <!--包裹购物车-->
-            <div class="cart-wrap" style="display: block;">
+            <div class="cart-wrap" style="display: block;padding: 4px;color: #666;">
                 <div class="w">
                     <div id="jd-cart">
                         <div class="cartmain">
@@ -180,8 +181,8 @@
                                                     <b></b>
                                                 </div>
                                             </div>
-                                            <div class="goods-item goods-item-sele" style="display: none;">
-                                                <div class="goods-info">
+                                            <div class="goods-item goods-item-sele" style="display: none;border: 1px solid #F1F1F1;margin-bottom: 5px;background: #ffffff;">
+                                                <div class="goods-info" style="line-height: 40px">
                                                     <div class="cell b-checkbox">
                                                         <div class="cart-checkbox">
                                                             <input type="checkbox" checked="" name="" id="" value="" />
@@ -194,25 +195,20 @@
                                                                 <a href=""><img src="" alt="" /></a>
                                                             </div>
                                                             <div class="goods-msg">
-                                                                <div class="goods-d-info">
+                                                                <div class="goods-d-info" style="line-height: 45px">
                                                                     <a href="">Apple iMac 27英寸一体机（Core i5
                                                                         处理器/8GB内存/1TB存储/2GB独显/Retina 5K屏 MK462CH/A）</a>
                                                                 </div>
-                                                                <div class="goods-ex">
-                                                                    <span class="promise"></span>
-                                                                    <span class="promise">
-                                                                        <i></i><a href="">购买京东服务</a>
-                                                                    </span>
-                                                                </div>
+                        
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="cell b-props">
-                                                        <div class="prop-text">尺码：27英寸Retina 5K 显示屏</div>
+                                                        <div class="prop-text" style="width: 172px">尺码：27英寸Retina 5K 显示屏</div>
                                                     </div>
                                                     <div class="cell b-price">
                                                         <strong>13488.00</strong>
-                                                        <a class="sales-promotion" href="">
+                                                        <a class="sales-promotion" href="" style="margin-top: 10px">
                                                             促销优惠
                                                             <b></b>
                                                         </a>
@@ -220,7 +216,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="cell b-quantity">
-                                                        <div class="quantity-form">
+                                                        <div class="quantity-form" style="width: 83px;margin-top: 10px;">
                                                             <a class="quantity-down" href="javascript:void(0)">-</a>
                                                             <input type="text" value="1" / style="padding: 0">
                                                             <a class="quantity-add" href="javascript:void(0)">+</a>
@@ -231,8 +227,9 @@
                                                         <strong>13488.00</strong>
                                                     </div>
                                                     <div class="cell b-action">
-                                                        <a href="javascript:void(0)">删除</a><a
-                                                            href="javascript:void(0)">移到我的关注</a>
+                                                        <a href="javascript:void(0)" class="delbtn">删除</a>
+                                                        <a href="javascript:void(0)">移到我的关注</a>
+
                                                     </div>
                                                 </div>
                                             </div>
